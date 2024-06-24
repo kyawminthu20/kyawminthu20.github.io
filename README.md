@@ -10,4 +10,7 @@ This directory contains the initial setup and introductory assignment. It is des
 
   ### HelloWorld/
   - **Project Description**: This is an Android Studio project for a simple "Hello World" application.
-  
+
+
+## Assignment1/
+This directory contains the working android app for the temperature converter. the input text value is changed according to the radio button and by clicking calculate
