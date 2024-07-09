@@ -1,47 +1,83 @@
 package edu.csueb.android.temperatureconverter;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.app.Activity;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText text;
+    private EditText celsiusText;
+    private EditText fahrenheitText;
+
+    private boolean ifCelsiusChanged;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = findViewById(R.id.editText);
+        celsiusText = findViewById(R.id.celsiusText);
+
+        fahrenheitText = findViewById(R.id.fahrenheitText);
+
+
+        celsiusText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                ifCelsiusChanged = true;
+
+
+
+            }
+
+        });
+        fahrenheitText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                ifCelsiusChanged = false;
+
+            }
+        });
     }
 
     public void onClick(View view) {
         if (view.getId() == R.id.button1) {
-            RadioButton celsiusButton = findViewById(R.id.celsiusRadioButton);
-            RadioButton fahrenheitButton = findViewById(R.id.fahrenheitRadioButton);
+            if(!ifCelsiusChanged)
+            {
+                //Float.parseFloat(fahrenheitText.getText().toString())))
+                celsiusText.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(Float.parseFloat(fahrenheitText.getText().toString()))));
 
-            if (text.getText().length() == 0) {
-                Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_LONG).show();
-                return;
+            }
+            else{
+                //Float.parseFloat(celsiusText.getText().toString())))
+                fahrenheitText.setText(String.valueOf(ConverterUtil.convertCelsiusToFahrenheit(Float.parseFloat(celsiusText.getText().toString()))));
+
             }
 
-            float inputValue = Float.parseFloat(text.getText().toString());
-            if (celsiusButton.isChecked()) {
-                text.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)));
-                celsiusButton.setChecked(false);
-                fahrenheitButton.setChecked(true);
-            } else {
-                text.setText(String.valueOf(ConverterUtil.convertCelsiusToFahrenheit(inputValue)));
-                fahrenheitButton.setChecked(false);
-                celsiusButton.setChecked(true);
-            }
+
+
         }
     }
 }

@@ -22,32 +22,28 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintVertical_bias="0.028">
 
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned|numberDecimal"
-            android:text="Enter Temperature" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="116dp"
-            android:layout_marginTop="16dp">
-
-            <RadioButton
-                android:id="@+id/celsiusRadioButton"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/celsiusText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/celsius" />
-
-            <RadioButton
-                android:id="@+id/fahrenheitRadioButton"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:hint="Celsius" />
+            <EditText
+                android:id="@+id/fahrenheitText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/fahrenheit" />
-        </RadioGroup>
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:hint="Fahrenheit"
+                />
+        </LinearLayout>
+
+
 
         <Button
             android:id="@+id/button1"
@@ -56,5 +52,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/calc"
             android:onClick="onClick"/>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
