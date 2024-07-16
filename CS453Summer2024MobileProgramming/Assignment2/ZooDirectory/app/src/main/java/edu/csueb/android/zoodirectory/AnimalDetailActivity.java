@@ -20,7 +20,7 @@ public class AnimalDetailActivity extends AppCompatActivity {
         animalImage = findViewById(R.id.animal_detail_image);
         animalDescription = findViewById(R.id.animal_detail_description);
 
-        Animal animal = (Animal) getIntent().getSerializableExtra("animal");
+        Animal animal = (Animal) getIntent().getParcelableExtra("animal");
         if (animal != null) {
             animalName.setText(animal.getName());
             animalImage.setImageResource(animal.getImageResource());

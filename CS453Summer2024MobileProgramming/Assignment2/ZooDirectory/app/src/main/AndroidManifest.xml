@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZooDirectory"
         tools:targetApi="31">
+        <activity android:name=".AnimalDetailActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
