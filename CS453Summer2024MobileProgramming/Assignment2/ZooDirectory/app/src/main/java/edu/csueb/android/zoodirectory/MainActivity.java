@@ -1,6 +1,8 @@
 package edu.csueb.android.zoodirectory;
 
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         animalList = new ArrayList<>();
         animalList.add(new Animal("Lion", R.drawable.lion, "The lion is a species in the family Felidae."));
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         animalList.add(new Animal("Zebra", R.drawable.zebra, "Zebras are African equids with distinctive black-and-white striped coats."));
 
         animalAdapter = new AnimalAdapter(this, animalList);
+        Log.d("MainActivity", "Item count: " + animalList.size());
+
         recyclerView.setAdapter(animalAdapter);
     }
 }
