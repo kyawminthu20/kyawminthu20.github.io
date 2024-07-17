@@ -30,9 +30,9 @@ android {
 }
 // Add the tasks.withType(JavaCompile) block here
 
-tasks.withType<JavaCompile>().configureEach(){
-    options.compilerArgs.add("-Xlint:deprecation")
-}
+//tasks.withType<JavaCompile>().configureEach(){
+//    options.compilerArgs.add("-Xlint:deprecation")
+//}
 
 
 
