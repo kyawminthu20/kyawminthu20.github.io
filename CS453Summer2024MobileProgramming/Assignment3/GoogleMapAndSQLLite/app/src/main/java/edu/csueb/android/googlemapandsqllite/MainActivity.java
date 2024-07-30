@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             ContentValues values = new ContentValues();
             values.put(LocationsDB.FIELD_LAT, latLng.latitude);
             values.put(LocationsDB.FIELD_LNG, latLng.longitude);
+
             values.put(LocationsDB.FIELD_ZOOM, mMap.getCameraPosition().zoom);
             getContentResolver().insert(LocationsContentProvider.CONTENT_URI, values);
         });
