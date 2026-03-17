@@ -19,3 +19,10 @@ def validate(data: dict) -> None:
     for i, job in enumerate(data["experience"]):
         if "bullets" not in job:
             raise ValueError(f"experience[{i}] missing 'bullets' key")
+
+
+def sanitize_filename(value: str | None) -> str:
+    if not value:
+        return "Unknown"
+    cleaned = re.sub(r'[^A-Za-z0-9_-]', '', value.replace(' ', '_'))
+    return cleaned[:50] if cleaned else "Unknown"
