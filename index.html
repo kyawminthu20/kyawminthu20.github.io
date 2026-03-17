@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kyaw Min Thu | Automation Controls Engineer</title>
+<meta name="description" content="Kyaw Min Thu — Automation Controls Engineer with 20+ years in PLC/SCADA, industrial automation, and control system design. Based in the San Francisco Bay Area.">
+<meta name="author" content="Kyaw Min Thu">
+<link rel="canonical" href="https://kmtkn.me/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kmtkn.me/">
+<meta property="og:title" content="Kyaw Min Thu | Automation Controls Engineer">
+<meta property="og:description" content="Automation Controls Engineer with 20+ years in PLC/SCADA, industrial automation, and control system design. Bay Area, CA.">
+<meta property="og:site_name" content="Kyaw Min Thu">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kyaw Min Thu | Automation Controls Engineer">
+<meta name="twitter:description" content="Automation Controls Engineer with 20+ years in PLC/SCADA, industrial automation, and control system design.">
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kyaw Min Thu",
+  "jobTitle": "Automation Controls Engineer",
+  "email": "kyaw@kmtkn.me",
+  "telephone": "+15109093716",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Francisco Bay Area",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "url": "https://kmtkn.me",
+  "knowsAbout": ["PLC Programming", "SCADA", "Industrial Automation", "Control Systems", "Ignition", "Rockwell ControlLogix", "Siemens S7", "Python"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0e14;
+  --bg-secondary: #111820;
+  --bg-panel: #151c27;
+  --bg-card: #1a2332;
+  --border: #1e2a3a;
+  --border-active: #2d4a2e;
+  --text-primary: #c8d6e5;
+  --text-secondary: #7a8ba3;
+  --text-dim: #4a5a6a;
+  --accent-green: #00e676;
+  --accent-green-dim: #00a854;
+  --accent-amber: #ffab00;
+  --accent-amber-dim: #b27600;
+  --accent-cyan: #00bcd4;
+  --accent-red: #ff5252;
+  --glow-green: rgba(0, 230, 118, 0.15);
+  --glow-amber: rgba(255, 171, 0, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-green-dim) var(--bg-secondary);
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 230, 118, 0.008) 2px,
+    rgba(0, 230, 118, 0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Grid background */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(10, 14, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 0 2rem;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-green);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.nav-logo .blink {
+  animation: blink 1.2s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.25s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent-green);
+  border-color: var(--border-active);
+  background: var(--glow-green);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--accent-green);
+  transition: 0.3s;
+}
+
+/* ── STATUS BAR ── */
+.status-bar {
+  position: fixed;
+  top: 56px; left: 0; right: 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.status-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  gap: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-item { display: flex; align-items: center; gap: 0.5rem; }
+
+/* ── MAIN ── */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 2rem 4rem;
+}
+
+section {
+  margin-bottom: 5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-tag {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+.section-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 4rem 0 2rem;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-amber);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-summary {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.hero-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.panel-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.82rem;
+}
+
+.panel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.panel-value {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.panel-value.highlight {
+  color: var(--accent-green);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.contact-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.contact-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.25s;
+  cursor: pointer;
+  background: none;
+}
+
+.contact-btn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: var(--glow-green);
+}
+
+.contact-btn.primary {
+  border-color: var(--accent-green-dim);
+  color: var(--accent-green);
+  background: var(--glow-green);
+}
+
+.contact-btn.primary:hover {
+  background: rgba(0, 230, 118, 0.25);
+}
+
+/* ── COMPETENCIES ── */
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.competency-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s;
+}
+
+.competency-card:hover {
+  border-color: var(--accent-green-dim);
+  background: var(--bg-card);
+  transform: translateX(4px);
+}
+
+.comp-indicator {
+  width: 3px;
+  height: 36px;
+  border-radius: 2px;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--glow-green);
+  flex-shrink: 0;
+}
+
+.comp-text {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-green), var(--accent-green-dim), var(--border));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -3rem;
+  top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-green);
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-dot,
+.timeline-item.active .timeline-dot {
+  background: var(--accent-green);
+  box-shadow: 0 0 12px var(--accent-green);
+}
+
+.timeline-item.active .timeline-dot {
+  border-color: var(--accent-amber);
+  background: var(--accent-amber);
+  box-shadow: 0 0 12px var(--accent-amber);
+}
+
+.timeline-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-card,
+.timeline-item.active .timeline-card {
+  border-color: var(--border-active);
+  background: var(--bg-card);
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.timeline-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+  background: var(--glow-amber);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 171, 0, 0.2);
+}
+
+.timeline-company {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.timeline-role {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-bullets {
+  list-style: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.timeline-item.active .timeline-bullets {
+  max-height: 500px;
+}
+
+.timeline-bullets li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.timeline-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green-dim);
+}
+
+.timeline-expand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  transition: color 0.25s;
+}
+
+.timeline-item:hover .timeline-expand {
+  color: var(--accent-green);
+}
+
+.timeline-item.active .timeline-expand {
+  display: none;
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-3px);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--accent-cyan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.project-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+}
+
+.project-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-green);
+  margin-bottom: 0.75rem;
+}
+
+.project-stat .arrow { font-size: 0.8rem; }
+
+/* ── SKILLS ── */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.skill-group {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.skill-group-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-amber);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+.skill-name {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+}
+
+.skill-bar-bg {
+  width: 90px;
+  height: 4px;
+  background: var(--bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--glow-green);
+  transition: width 1.5s ease;
+  width: 0;
+}
+
+.skill-bar.animated {
+  /* width set inline */
+}
+
+/* ── EDUCATION ── */
+.edu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.25rem;
+}
+
+.edu-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+.edu-icon {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border-active);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  background: var(--glow-green);
+  flex-shrink: 0;
+}
+
+.edu-degree {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.edu-school {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.edu-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-amber);
+  margin-top: 0.25rem;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.contact-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.contact-section p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem 2rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contact-card:hover {
+  border-color: var(--accent-green-dim);
+  transform: translateY(-2px);
+  background: var(--bg-card);
+}
+
+.contact-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.contact-card-value {
+  font-size: 0.9rem;
+  color: var(--accent-green);
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links { 
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0; right: 0;
+    background: rgba(10, 14, 20, 0.98);
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+
+  .status-bar { display: none; }
+
+  main { padding-top: 80px; }
+
+  .competency-grid,
+  .projects-grid,
+  .skills-container,
+  .edu-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline { padding-left: 2.5rem; }
+  .timeline-dot { left: -2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.6rem; }
+  main { padding: 70px 1rem 2rem; }
+  .nav { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">KMT<span class="blink">_</span></div>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-inner">
+    <div class="status-item"><div class="status-dot"></div> SYS ONLINE</div>
+    <div class="status-item">EXP: 20+ YRS</div>
+    <div class="status-item">LOC: SF BAY AREA, CA</div>
+    <div class="status-item">STATUS: OPEN TO OPPORTUNITIES</div>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero visible" id="about">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-subtitle">Automation Controls Engineer</div>
+      <h1 class="hero-title">Kyaw Min Thu</h1>
+      <p class="hero-summary">
+        Results-driven engineer with over 20 years building, programming, and commissioning industrial control systems. 
+        From offshore drilling rigs to Amazon fulfillment centers, I deliver full-lifecycle automation solutions — 
+        PLC logic, SCADA interfaces, safety interlocks, and data systems — that improve uptime, safety, and reliability.
+      </p>
+      <div class="contact-links" style="margin-top: 1.5rem;">
+        <a href="mailto:kyaw@kmtkn.me" class="contact-btn primary">CONTACT ME</a>
+        <a href="#experience" class="contact-btn">VIEW EXPERIENCE</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-title">// System Overview</div>
+      <div class="panel-row">
+        <span class="panel-label">Experience</span>
+        <span class="panel-value highlight">20+ Years</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">Specialization</span>
+        <span class="panel-value">PLC / SCADA</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">PLC Platforms</span>
+        <span class="panel-value">Rockwell, Siemens</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">SCADA</span>
+        <span class="panel-value">Ignition, FactoryTalk</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">Domains</span>
+        <span class="panel-value">MFG, Offshore, R&D</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">Degree</span>
+        <span class="panel-value">BS Computer Science</span>
+      </div>
+      <div class="panel-row">
+        <span class="panel-label">Location</span>
+        <span class="panel-value">Bay Area, CA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE COMPETENCIES -->
+<section id="competencies">
+  <div class="section-header">
+    <span class="section-tag">Core Competencies</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.01</span>
+  </div>
+  <div class="competency-grid">
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Control System Development — Design, Installation & Commissioning</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">PLC Programming — Siemens S7, Allen-Bradley ControlLogix, Mitsubishi FX</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">SCADA & HMI — Ignition (Vision & Perspective), FactoryTalk, LabVIEW</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Protocols — OPC UA, Modbus TCP, Ethernet/IP, MQTT, SECS/GEM</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">System Architecture, Electrical Design & Safety Compliance (ATEX)</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Database & Historian — PostgreSQL, MySQL, Ignition Historian</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Version Control (GitLab), Documentation & Team Mentorship</div></div>
+    <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Fanuc Robotics — Troubleshooting, Commissioning & System Recovery</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-tag">Professional Experience</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.02</span>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item active" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">MAR 2025 — PRESENT</span>
+          <span class="timeline-company">C&W Services / JLL — Amazon Fulfillment Centers</span>
+        </div>
+        <div class="timeline-role">Automation Engineer / Controls Lead</div>
+        <ul class="timeline-bullets">
+          <li>Lead controls engineer for high-speed material handling systems in 24/7 Amazon warehouses.</li>
+          <li>Maintain Rockwell ControlLogix PLCs on live conveyor and sortation systems.</li>
+          <li>Support and maintain Ignition SCADA and FactoryTalk HMI dashboards.</li>
+          <li>Main Fanuc robot technical lead onsite for troubleshooting and system recovery.</li>
+          <li>Commissioned a conveyor visual inspection system integrating sensors, PLC logic, and HMI diagnostics.</li>
+          <li>Developed Python-based maintenance monitoring programs for fault trending and downtime analysis.</li>
+          <li>Standardize Ignition templates, manage version control with GitLab, and mentor technicians.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">MAR 2018 — FEB 2025</span>
+          <span class="timeline-company">Energy Recovery Inc.</span>
+        </div>
+        <div class="timeline-role">Electrical, Instrumentation & Controls Engineer</div>
+        <ul class="timeline-bullets">
+          <li>Built and commissioned R&D automation systems for high-pressure energy recovery testing.</li>
+          <li>Integrated Allen-Bradley PLCs with NI CompactDAQ and Ignition SCADA platforms.</li>
+          <li>Designed electrical schematics, control panels, and safety interlocks.</li>
+          <li>Implemented PID loops, performed system validation, startup, and operator training.</li>
+          <li>Utilized Python and SQL for data acquisition, traceability, and experiment repeatability.</li>
+          <li>Delivered full systems from concept through operational use for wastewater and water R&D projects.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">OCT 2015 — MAR 2018</span>
+          <span class="timeline-company">Tesla Motors / SolarCity</span>
+        </div>
+        <div class="timeline-role">Maintenance Technician (Automation & Controls)</div>
+        <ul class="timeline-bullets">
+          <li>Supported high-volume manufacturing automation including Fanuc robotics and Rockwell PLCs.</li>
+          <li>Performed predictive maintenance and root cause analysis on production lines.</li>
+          <li>Improved Mean Time Between Failures (MTBF) through data-driven reliability programs.</li>
+          <li>Modified control logic and supported production startups and line expansions.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">APR 2012 — APR 2015</span>
+          <span class="timeline-company">MHWirth (Singapore) Pte. Ltd.</span>
+        </div>
+        <div class="timeline-role">Field Service Engineer (Controls & Automation)</div>
+        <ul class="timeline-bullets">
+          <li>Led full control system conversion for offshore drilling top drive — Mitsubishi to Siemens S7 PLC.</li>
+          <li>Managed all project phases: architecture, I/O mapping, interlock logic, ATEX-certified cabinet fabrication.</li>
+          <li>Tuned hydraulic PID loops and verified control performance under live offshore load conditions.</li>
+          <li>Commissioned systems offshore with live troubleshooting in hazardous environments.</li>
+          <li>Full lifecycle ownership from design to production handover.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">OCT 2010 — MAR 2012</span>
+          <span class="timeline-company">GE International Inc.</span>
+        </div>
+        <div class="timeline-role">Tooling Center Technician</div>
+        <ul class="timeline-bullets">
+          <li>Maintained and calibrated industrial electrical equipment to safety and performance standards.</li>
+          <li>Managed inventory and tool preparation for field maintenance teams.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">MAY 2009 — OCT 2010</span>
+          <span class="timeline-company">Hexcel Solutions Pte. Ltd.</span>
+        </div>
+        <div class="timeline-role">System Engineer</div>
+        <ul class="timeline-bullets">
+          <li>Designed and commissioned automated firefighter training systems for Singapore Civil Defence Academy.</li>
+          <li>Programmed PLCs and built SCADA interfaces for fire, gas, and hydraulic control systems.</li>
+          <li>Integrated LPG and kerosene fire effects with the highest safety standards.</li>
+          <li>Delivered documentation and operator training for end users.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">JUN 2005 — DEC 2008</span>
+          <span class="timeline-company">Chartered Semiconductor Manufacturing</span>
+        </div>
+        <div class="timeline-role">Associate Engineer — Computer Integrated Manufacturing</div>
+        <ul class="timeline-bullets">
+          <li>Maintained CIM systems (IBM SiView) and factory automation data platforms.</li>
+          <li>Troubleshot server logs and optimized data collection workflows for production control.</li>
+          <li>Improved reliability and uptime of automation data systems.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">JUN 2004 — MAY 2005</span>
+          <span class="timeline-company">United Test and Assembly Center Ltd</span>
+        </div>
+        <div class="timeline-role">Engineering Assistant — Mixed Signal Logic Testing</div>
+        <ul class="timeline-bullets">
+          <li>Maintained pneumatic controlled chip handling systems.</li>
+          <li>Troubleshot mixed signal logic processing test equipment and minimized downtime.</li>
+          <li>Performed tester and handler setup, preventive maintenance, and calibration.</li>
+        </ul>
+        <div class="timeline-expand">▾ CLICK TO EXPAND</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-tag">Project Highlights</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.03</span>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-tag">Offshore · Controls Conversion</div>
+      <div class="project-title">Siemens PLC Upgrade — Hydraulic Top Drive</div>
+      <div class="project-stat"><span class="arrow">↑</span> 30% system uptime improvement</div>
+      <div class="project-desc">
+        Led a complete control system conversion from Mitsubishi PLC to Siemens S7 for an offshore drilling rig's hydraulic top drive.
+        Managed architecture, I/O mapping, ATEX-certified cabinet fabrication, and on-site commissioning. Tuned hydraulic PID loops 
+        under live load. Achieved 100% functional equivalence and reduced maintenance time by 30%.
+      </div>
+      <div class="project-techs">
+        <span class="tech-tag">Siemens S7</span>
+        <span class="tech-tag">TIA Portal</span>
+        <span class="tech-tag">PID Control</span>
+        <span class="tech-tag">ATEX</span>
+        <span class="tech-tag">Hydraulics</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">R&D · Test Automation</div>
+      <div class="project-title">High-Pressure R&D Test Rig Automation</div>
+      <div class="project-stat"><span class="arrow">↑</span> Enhanced data quality & repeatability</div>
+      <div class="project-desc">
+        Developed and commissioned automation test rigs for high-pressure energy recovery testing in water and wastewater sectors. 
+        Integrated Allen-Bradley PLCs, NI CompactDAQ, and Ignition SCADA. Designed electrical schematics, safety interlocks, 
+        and Python/SQL-based data acquisition for full traceability.
+      </div>
+      <div class="project-techs">
+        <span class="tech-tag">Allen-Bradley</span>
+        <span class="tech-tag">NI DAQ</span>
+        <span class="tech-tag">Ignition</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">SQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Warehouse · SCADA</div>
+      <div class="project-title">Material Handling & SCADA Optimization — Amazon</div>
+      <div class="project-stat"><span class="arrow">↑</span> Improved throughput & reliability</div>
+      <div class="project-desc">
+        Lead automation engineer for Amazon Fulfillment Centers supporting Rockwell PLCs, FactoryTalk SCADA, and 
+        Ignition-based visualization. Root cause analysis across conveyors, sorters, and robotic systems. Standardized 
+        Ignition HMI templates and Python-based fault trending programs.
+      </div>
+      <div class="project-techs">
+        <span class="tech-tag">Rockwell</span>
+        <span class="tech-tag">FactoryTalk</span>
+        <span class="tech-tag">Ignition</span>
+        <span class="tech-tag">Fanuc</span>
+        <span class="tech-tag">GitLab</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Safety · Training Simulator</div>
+      <div class="project-title">Automated Firefighter Training System — SCDA</div>
+      <div class="project-stat"><span class="arrow">↑</span> Improved safety & reliability in live training</div>
+      <div class="project-desc">
+        Designed and commissioned a PLC/SCADA-based firefighter training simulator for the Singapore Civil Defence Academy. 
+        Integrated hydraulics, motion control, fire suppression, LPG and kerosene control systems. Developed alarm management, 
+        data logging, and automated safety sequences.
+      </div>
+      <div class="project-techs">
+        <span class="tech-tag">Siemens PLC</span>
+        <span class="tech-tag">SCADA</span>
+        <span class="tech-tag">Hydraulics</span>
+        <span class="tech-tag">Motion Control</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-tag">Technical Skills</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.04</span>
+  </div>
+  <div class="skills-container">
+
+    <div class="skill-group">
+      <div class="skill-group-title">// PLC & Controls</div>
+      <div class="skill-item"><span class="skill-name">Rockwell ControlLogix / Studio 5000</span><div class="skill-bar-bg"><div class="skill-bar" data-width="95%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Siemens S7 / TIA Portal</span><div class="skill-bar-bg"><div class="skill-bar" data-width="90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Mitsubishi FX</span><div class="skill-bar-bg"><div class="skill-bar" data-width="70%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Ladder Logic / Structured Text / FBD</span><div class="skill-bar-bg"><div class="skill-bar" data-width="95%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">PID Tuning & Motion Control</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">// SCADA & HMI</div>
+      <div class="skill-item"><span class="skill-name">Ignition (Vision & Perspective)</span><div class="skill-bar-bg"><div class="skill-bar" data-width="90%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">FactoryTalk View</span><div class="skill-bar-bg"><div class="skill-bar" data-width="88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">LabVIEW / NI DAQ</span><div class="skill-bar-bg"><div class="skill-bar" data-width="80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Historian & Data Logging</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">// Programming & Data</div>
+      <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">SQL (PostgreSQL / MySQL)</span><div class="skill-bar-bg"><div class="skill-bar" data-width="80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">C</span><div class="skill-bar-bg"><div class="skill-bar" data-width="65%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Linux / Bash</span><div class="skill-bar-bg"><div class="skill-bar" data-width="75%"></div></div></div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">// Protocols & Networking</div>
+      <div class="skill-item"><span class="skill-name">Ethernet/IP</span><div class="skill-bar-bg"><div class="skill-bar" data-width="92%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">OPC UA</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Modbus TCP</span><div class="skill-bar-bg"><div class="skill-bar" data-width="88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">MQTT</span><div class="skill-bar-bg"><div class="skill-bar" data-width="75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">SECS/GEM</span><div class="skill-bar-bg"><div class="skill-bar" data-width="65%"></div></div></div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">// Robotics & Drives</div>
+      <div class="skill-item"><span class="skill-name">Fanuc Robotics</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">VFDs & Servo Drives</span><div class="skill-bar-bg"><div class="skill-bar" data-width="82%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Safety Systems & Interlocks</span><div class="skill-bar-bg"><div class="skill-bar" data-width="92%"></div></div></div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">// Tools & Platforms</div>
+      <div class="skill-item"><span class="skill-name">GitLab / Version Control</span><div class="skill-bar-bg"><div class="skill-bar" data-width="80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">AutoCAD Electrical</span><div class="skill-bar-bg"><div class="skill-bar" data-width="78%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Wireshark</span><div class="skill-bar-bg"><div class="skill-bar" data-width="75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">VSCode</span><div class="skill-bar-bg"><div class="skill-bar" data-width="85%"></div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-tag">Education</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.05</span>
+  </div>
+  <div class="edu-cards">
+    <div class="edu-card">
+      <div class="edu-icon">BS</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Computer Science</div>
+        <div class="edu-school">California State University, East Bay — Hayward, CA</div>
+        <div class="edu-year">Jun 2018 — Dec 2024</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">DIP</div>
+      <div>
+        <div class="edu-degree">Diploma in Electronics, Computers & Communication Engineering</div>
+        <div class="edu-school">Singapore Polytechnic</div>
+        <div class="edu-year">Jun 2001 — Apr 2004</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <h2>Let's Connect</h2>
+  <p>Open to automation engineering roles, consulting, and collaboration opportunities.</p>
+  <div class="contact-grid">
+    <a href="mailto:kyaw@kmtkn.me" class="contact-card">
+      <div class="contact-card-label">EMAIL</div>
+      <div class="contact-card-value">kyaw@kmtkn.me</div>
+    </a>
+    <a href="tel:+15109093716" class="contact-card">
+      <div class="contact-card-label">PHONE</div>
+      <div class="contact-card-value">+1 (510) 909-3716</div>
+    </a>
+    <a href="#" class="contact-card">
+      <div class="contact-card-label">LOCATION</div>
+      <div class="contact-card-value">San Francisco Bay Area, CA</div>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Kyaw Min Thu &mdash; Built with precision.
+</footer>
+
+<script>
+// Timeline toggle
+function toggleTimeline(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.timeline-item').forEach(item => item.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+
+// Intersection Observer for section fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Animate skill bars
+      if (entry.target.id === 'skills') {
+        document.querySelectorAll('.skill-bar').forEach(bar => {
+          setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+            bar.classList.add('animated');
+          }, 200);
+        });
+      }
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+  if (!section.classList.contains('hero')) observer.observe(section);
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (scrollY >= top) current = section.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>

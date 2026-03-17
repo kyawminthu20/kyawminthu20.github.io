@@ -1,0 +1,700 @@
+# ============================================================================
+# Kyaw Min Thu — Career Knowledge Base (RAG-Optimized)
+# Last Updated: 2026-03-16
+# Purpose: Structured career data for Retrieval-Augmented Generation
+# Usage: Feed into vector DB, LLM context, or career assistant pipelines
+# ============================================================================
+
+metadata:
+  version: "1.0"
+  format: "rag-career-profile"
+  last_updated: "2026-03-16"
+  source_documents:
+    - "Resume_of_Kyaw_Min_Thu_2025.pdf"
+    - "Kyaw_Min_Thu_Control_System_Engineer.pdf"
+    - "Kyaw_Min_Thu_Resume_Automation_Control_Engineer.docx"
+    - "Kyaw_Min_Thu_Relevant_Project_Experience.docx"
+    - "SCADA_engineer_resume.pdf"
+    - "Kyaw_Min_Thu_Resume_Human_Readable.docx"
+
+# ============================================================================
+# PERSONAL INFORMATION
+# ============================================================================
+personal:
+  full_name: "Kyaw Min Thu"
+  phone: "+1 (510) 909-3716"
+  email_primary: "kyaw@kmtkn.me"
+  email_secondary: "kyawminthu.kn@gmail.com"
+  location: "San Francisco Bay Area, CA"
+  country: "United States"
+  citizenship_note: "Previously based in Singapore (2001–2015)"
+
+# ============================================================================
+# PROFESSIONAL SUMMARY
+# ============================================================================
+summary:
+  headline: "Automation Controls Engineer"
+  years_of_experience: "20+"
+  core_identity: >
+    Results-driven Automation Controls Engineer with over 20 years of
+    experience in control systems, industrial automation, and electrical
+    engineering. Skilled in PLC/SCADA design, Ignition development, and
+    complex system integration across manufacturing, R&D, and material
+    handling environments. Proven ability to lead full project lifecycles,
+    mentor engineering teams, and implement automation strategies that
+    improve system uptime, safety, and reliability.
+  alternate_summary: >
+    Hands-on automation engineer with 20+ years of experience building,
+    programming, and commissioning industrial control systems. Experienced
+    in warehouse automation, offshore drilling systems, R&D test platforms,
+    and manufacturing lines.
+  industries:
+    - "Warehouse / Material Handling (Amazon Fulfillment)"
+    - "Offshore Oil & Gas Drilling"
+    - "R&D / Energy Recovery / Water Treatment"
+    - "Electric Vehicle Manufacturing (Tesla)"
+    - "Solar Energy (SolarCity)"
+    - "Semiconductor Manufacturing"
+    - "Defense / Firefighter Training Systems"
+    - "Aviation / Tooling (GE)"
+  domains:
+    - "SCADA system design"
+    - "PLC logic development"
+    - "R&D automation"
+    - "Material handling"
+    - "Offshore systems"
+    - "Manufacturing automation"
+    - "Safety-critical systems"
+    - "Computer Integrated Manufacturing (CIM)"
+
+# ============================================================================
+# CORE COMPETENCIES
+# ============================================================================
+competencies:
+  - category: "Control Systems"
+    items:
+      - "Control System Development — Design, Installation, and Commissioning"
+      - "Full system build and startup"
+      - "System Architecture and Electrical Design"
+      - "Safety Compliance (ATEX, hazardous area)"
+
+  - category: "PLC Programming"
+    items:
+      - "Rockwell ControlLogix — Design, Development, Testing, Commissioning, and Maintenance"
+      - "Siemens S7-300/1500 — Development, Testing, Commissioning, and Maintenance"
+      - "Mitsubishi FX"
+      - "Omron PLCs"
+      - "Ladder Logic, Structured Text (ST), Function Block Diagram (FBD)"
+
+  - category: "SCADA & HMI"
+    items:
+      - "Ignition (Vision & Perspective) Development and Python Scripting"
+      - "FactoryTalk View"
+      - "LabVIEW"
+      - "Historian Integration"
+      - "HMI template standardization"
+      - "Dashboard design and deployment"
+
+  - category: "Robotics & Drives"
+    items:
+      - "Fanuc Robotics — Testing, Commissioning, Troubleshooting, and System Recovery"
+      - "Servo Drives — Motion Controls — Testing, Installation, and Commissioning"
+      - "VFDs (Variable Frequency Drives)"
+
+  - category: "Networking & Protocols"
+    items:
+      - "OPC UA"
+      - "Modbus TCP"
+      - "Ethernet/IP"
+      - "MQTT"
+      - "SECS/GEM"
+      - "Industrial Ethernet"
+
+  - category: "Data & Databases"
+    items:
+      - "PostgreSQL"
+      - "MySQL"
+      - "Ignition Historian"
+      - "Data acquisition and traceability"
+      - "Python-based data logging and monitoring"
+
+  - category: "Software & Tools"
+    items:
+      - "TIA Portal"
+      - "Studio 5000"
+      - "FactoryTalk"
+      - "Ignition Designer"
+      - "LabVIEW"
+      - "AutoCAD Electrical"
+      - "Wireshark"
+      - "VSCode"
+      - "GitLab (version control)"
+      - "Advanced PLC Diagnostic Tools"
+
+  - category: "Programming Languages"
+    items:
+      - "Python"
+      - "SQL"
+      - "C"
+      - "Ladder Logic"
+      - "Structured Text (ST)"
+      - "Function Block Diagram (FBD)"
+
+  - category: "Soft Skills"
+    items:
+      - "Team mentorship and technician training"
+      - "Cross-functional collaboration"
+      - "Process optimization"
+      - "Project management — material and manpower planning within budget"
+      - "Root cause analysis"
+      - "Technical documentation and operational training"
+      - "Vendor coordination"
+
+# ============================================================================
+# PROFESSIONAL EXPERIENCE
+# ============================================================================
+experience:
+  - id: "exp-cw-jll"
+    job_title: "Automation Engineer / Controls Lead"
+    company: "C&W Services / JLL"
+    client: "Amazon Fulfillment Centers"
+    location: "United States"
+    start_date: "2025-03"
+    end_date: "present"
+    is_current: true
+    employment_type: "full-time"
+    industry: "Warehouse / Material Handling"
+    tags:
+      - "Rockwell ControlLogix"
+      - "Ignition SCADA"
+      - "FactoryTalk HMI"
+      - "Fanuc Robotics"
+      - "Python"
+      - "GitLab"
+      - "conveyor systems"
+      - "sortation"
+      - "material handling"
+      - "Amazon"
+    responsibilities:
+      - "Lead controls engineer for high-speed material handling systems in 24/7 Amazon warehouses."
+      - "Maintain Rockwell ControlLogix PLCs on live conveyor and sortation systems."
+      - "Support and maintain Ignition SCADA and FactoryTalk HMI."
+      - "Troubleshoot PLC logic, VFDs, safety circuits, I/O, and industrial networks."
+      - "Main Fanuc robot technical lead onsite for troubleshooting and system recovery."
+      - "Commissioned a conveyor visual inspection system, integrating sensors, PLC logic, and HMI diagnostics."
+      - "Developed and delivered Python-based maintenance monitoring programs for fault trending and downtime analysis."
+      - "Lead root cause investigations and implement permanent fixes."
+      - "Support equipment startup, upgrades, and commissioning activities."
+      - "Standardize Ignition templates and dashboards, perform version-controlled updates in GitLab."
+      - "Mentor technicians on best practices in PLC troubleshooting and control logic optimization."
+      - "Act as site technical expert, resolving complex controls issues and supporting cross-functional teams."
+      - "Customized, refactored with exception handling, and deployed the Leviathan project into production."
+      - "Provided integration and testing support for IOQ projects in MCC1."
+      - "Support tech upgrades, vendor coordination, and performance reporting across networks."
+
+  - id: "exp-eri"
+    job_title: "Electrical, Instrumentation & Controls Engineer"
+    alternate_title: "Electrical Technician (Electrical, Instrumentation, and Control)"
+    company: "Energy Recovery Inc."
+    location: "San Leandro, CA (Bay Area)"
+    start_date: "2018-03"
+    end_date: "2025-02"
+    duration: "~7 years"
+    employment_type: "full-time"
+    industry: "R&D / Energy Recovery / Water Treatment"
+    tags:
+      - "Allen-Bradley"
+      - "NI CompactDAQ"
+      - "National Instruments"
+      - "Ignition SCADA"
+      - "Python"
+      - "SQL"
+      - "PID control"
+      - "safety interlocks"
+      - "electrical schematics"
+      - "R&D"
+      - "high-pressure testing"
+      - "VFDs"
+      - "HVAC controls"
+    responsibilities:
+      - "Built and commissioned R&D automation systems for high-pressure energy recovery testing."
+      - "Developed National Instrument controls system."
+      - "Designed electrical schematics and control panels."
+      - "Commissioned high-pressure water test rigs."
+      - "Integrated PLC systems with NI DAQ platforms."
+      - "Implemented PID loops and safety interlocks."
+      - "Performed system validation, startup, and operator training."
+      - "Delivered systems from concept through operational use."
+      - "Utilized Python and SQL for data acquisition and traceability."
+      - "Enhanced data traceability and experiment repeatability in high-pressure testing."
+      - "Led upgrades, installation, and maintenance of production equipment."
+      - "Provided field support for installing and troubleshooting testing rigs, working with National Instruments, Allen Bradley, and VFDs."
+      - "Implemented comprehensive safety controls for testing loops, including detailed design drawings and control diagrams."
+      - "Researched and applied advanced control systems and instrumentation for R&D initiatives covering HVAC controls, electrical power monitoring, testing equipment, hydronic systems, and data collection."
+      - "Designed and built testing rig control systems for wastewater and water business R&D projects."
+
+  - id: "exp-tesla"
+    job_title: "Maintenance Technician (Automation & Controls)"
+    alternate_title: "Maintenance Technician (Electrical, Instrumentation, and Control)"
+    company: "Tesla Motors / SolarCity"
+    location: "Fremont, CA"
+    start_date: "2015-10"
+    end_date: "2018-03"
+    duration: "~2.5 years"
+    employment_type: "full-time"
+    industry: "Electric Vehicle Manufacturing / Solar Energy"
+    tags:
+      - "Fanuc robotics"
+      - "Rockwell PLCs"
+      - "SCADA"
+      - "predictive maintenance"
+      - "root cause analysis"
+      - "MTBF"
+      - "high-volume manufacturing"
+    responsibilities:
+      - "Supported high-volume manufacturing automation systems, including Fanuc robotics and Rockwell PLCs."
+      - "Maintained, commissioned, and upgraded industrial automation systems."
+      - "Troubleshot Rockwell PLCs and Fanuc robotic systems."
+      - "Performed predictive maintenance, root cause analysis, and improved MTBF through data-driven reliability programs."
+      - "Conducted failure analysis and reliability assessments, reducing downtime."
+      - "Collaborated with engineering teams to implement predictive maintenance strategies."
+      - "Modified control logic and improved system reliability."
+      - "Supported production startups and line expansions."
+
+  - id: "exp-mhwirth"
+    job_title: "Field Service Engineer (Electrical, Instrumentation & Control)"
+    company: "MHWirth (Singapore) Pte. Ltd."
+    location: "Singapore / International (Offshore)"
+    start_date: "2012-04"
+    end_date: "2015-04"
+    duration: "3 years"
+    employment_type: "full-time"
+    industry: "Offshore Oil & Gas Drilling"
+    tags:
+      - "Siemens S7"
+      - "Mitsubishi PLC"
+      - "TIA Portal"
+      - "hydraulic PID"
+      - "ATEX"
+      - "offshore"
+      - "drilling"
+      - "top drive"
+      - "commissioning"
+      - "hazardous area"
+      - "safety-critical"
+    responsibilities:
+      - "Led a full control system conversion project for an offshore drilling top drive from Mitsubishi to Siemens S7 PLC."
+      - "Installed and commissioned Aker drilling package on offshore drilling rigs in safety-critical environments."
+      - "Led the upgrade of the control system for the Hydraulic Top Drive (DDM-650-HY)."
+      - "Delivered complete lifecycle engineering from requirements and design to commissioning and production handover."
+      - "Optimized hydraulic PID control loops and ensured full ATEX compliance for hazardous-area installations."
+      - "Commissioned system offshore with live troubleshooting in hazardous environments."
+      - "Delivered field service and commissioning support internationally, covering all project stages from pre-commissioning to integrated systems testing."
+
+  - id: "exp-ge"
+    job_title: "Tooling Center Technician"
+    company: "GE International Inc."
+    location: "Singapore"
+    start_date: "2010-10"
+    end_date: "2012-03"
+    duration: "~1.5 years"
+    employment_type: "full-time"
+    industry: "Aviation / Industrial"
+    tags:
+      - "calibration"
+      - "electrical equipment"
+      - "maintenance"
+      - "GE"
+    responsibilities:
+      - "Maintained and calibrated industrial electrical equipment, ensuring compliance with safety and performance standards."
+      - "Managed inventory and tool preparation for field maintenance teams."
+
+  - id: "exp-hexcel"
+    job_title: "System Engineer"
+    company: "Hexcel Solutions Pte. Ltd."
+    location: "Singapore"
+    start_date: "2009-05"
+    end_date: "2010-10"
+    duration: "~1.5 years"
+    employment_type: "full-time"
+    industry: "Defense / Firefighter Training"
+    tags:
+      - "Siemens PLC"
+      - "Omron PLC"
+      - "SCADA"
+      - "hydraulics"
+      - "motion control"
+      - "fire suppression"
+      - "LPG"
+      - "safety systems"
+      - "Singapore Civil Defence Academy"
+    responsibilities:
+      - "Designed and commissioned automated firefighter training systems using Siemens PLCs and SCADA."
+      - "Programmed Omron PLCs."
+      - "Built SCADA interfaces for fire, gas, and hydraulic control systems."
+      - "Integrated LPG and Kerosene control for fire effects for firefighter training with the highest safety standard."
+      - "Integrated hydraulics, motion control, and fire suppression logic into operator HMI interfaces."
+      - "Commissioned and validated safety systems onsite."
+      - "Led maintenance team for firefighter training facilities."
+      - "Directed technical team in designing, installing, and commissioning SCADA and PLC systems."
+      - "Provided technical documentation and operational training for end users."
+
+  - id: "exp-chartered"
+    job_title: "Associate Engineer (Computer Integrated Manufacturing)"
+    company: "Chartered Semiconductor Manufacturing Ltd"
+    location: "Singapore"
+    start_date: "2005-06"
+    end_date: "2008-12"
+    duration: "~3.5 years"
+    employment_type: "full-time"
+    industry: "Semiconductor Manufacturing"
+    tags:
+      - "CIM"
+      - "IBM SiView"
+      - "server logs"
+      - "data collection"
+      - "factory automation"
+      - "MSP"
+      - "DCS"
+    responsibilities:
+      - "Monitored and maintained CIM systems (IBM SiView), troubleshooting server logs and optimizing data collection workflows for production control."
+      - "Conducted first-level troubleshooting of data collection systems, analyzing MSP and DCS server logs."
+      - "Applied expertise in Computer Integrated Manufacturing (CIM) using SiView from IBM to optimize control processes."
+      - "Diagnosed and resolved data collection system issues through detailed log analysis, ensuring reliable data flow and system integrity."
+      - "Improved reliability and uptime of factory automation data systems."
+
+  - id: "exp-utac"
+    job_title: "Engineering Assistant (Mixed Signal Logic Testing)"
+    company: "United Test and Assembly Center Ltd (UTAC)"
+    location: "Singapore"
+    start_date: "2004-06"
+    end_date: "2005-05"
+    duration: "~1 year"
+    employment_type: "full-time"
+    industry: "Semiconductor Testing"
+    tags:
+      - "chip handling"
+      - "pneumatics"
+      - "test equipment"
+      - "calibration"
+      - "mixed signal"
+    responsibilities:
+      - "Maintenance of Pneumatic Controlled Chip Handling System."
+      - "Troubleshot test system equipment-related issues (Mixed Signal Logic Processing Test) and minimized equipment downtime."
+      - "Tester and Handler setup, troubleshooting, preventive maintenance, and calibration."
+
+# ============================================================================
+# KEY PROJECTS
+# ============================================================================
+projects:
+  - id: "proj-siemens-upgrade"
+    title: "Full Automation Conversion — Siemens PLC Upgrade (Offshore Drilling)"
+    company: "MHWirth"
+    industry: "Offshore Oil & Gas"
+    type: "Controls Conversion"
+    description: >
+      Led a complete control system conversion from Mitsubishi PLC to Siemens S7
+      for a hydraulic top drive (DDM-650-HY) on an offshore rig. Managed all
+      project phases — architecture, design, I/O mapping, interlock logic, cabinet
+      fabrication (ATEX-certified), and on-site commissioning. Tuned hydraulic PID
+      loops and verified control performance under live load conditions.
+    outcomes:
+      - "Achieved 100% functional equivalence"
+      - "Eliminated obsolete components"
+      - "Reduced maintenance time by 30%"
+      - "Improved system uptime by 30%"
+    technologies:
+      - "Siemens S7"
+      - "TIA Portal"
+      - "Mitsubishi PLC (legacy)"
+      - "PID Control"
+      - "ATEX certification"
+      - "Hydraulics"
+    tags:
+      - "full lifecycle"
+      - "offshore"
+      - "controls conversion"
+      - "hazardous area"
+
+  - id: "proj-rd-test-rig"
+    title: "R&D Test Rig Automation — Energy Recovery Inc."
+    company: "Energy Recovery Inc."
+    industry: "Water / Wastewater R&D"
+    type: "R&D Automation"
+    description: >
+      Developed and commissioned automation test rigs for high-pressure R&D in
+      the water and wastewater sectors. Integrated Allen-Bradley PLCs, NI
+      CompactDAQ, and SCADA for monitoring pumps, valves, and instrumentation.
+      Designed electrical schematics and implemented safety interlocks. Utilized
+      Python and SQL for data acquisition and traceability.
+    outcomes:
+      - "Enhanced repeatability and data quality"
+      - "Improved operator safety for critical experiments"
+      - "Full concept-to-operation delivery"
+    technologies:
+      - "Allen-Bradley ControlLogix"
+      - "NI CompactDAQ"
+      - "Ignition SCADA"
+      - "Python"
+      - "SQL"
+      - "Safety interlocks"
+    tags:
+      - "R&D"
+      - "test rig"
+      - "high-pressure"
+      - "data acquisition"
+
+  - id: "proj-amazon-scada"
+    title: "Material Handling & SCADA Optimization — Amazon / JLL"
+    company: "C&W Services / JLL (Amazon)"
+    industry: "Warehouse / Material Handling"
+    type: "SCADA Optimization"
+    description: >
+      Lead automation engineer for Amazon Fulfillment Centers, supporting Rockwell
+      PLCs, FactoryTalk SCADA, and Ignition-based visualization. Perform root cause
+      analysis and troubleshoot complex PLC/HMI logic across conveyors, sorters, and
+      robotic systems. Standardize Ignition HMI templates, manage version control
+      with GitLab, and mentor technicians.
+    outcomes:
+      - "Improved throughput and reliability"
+      - "Standardized HMI templates across site"
+      - "Python-based fault trending and downtime analysis"
+    technologies:
+      - "Rockwell ControlLogix"
+      - "FactoryTalk View"
+      - "Ignition (Vision & Perspective)"
+      - "Fanuc Robotics"
+      - "Python"
+      - "GitLab"
+    tags:
+      - "warehouse"
+      - "material handling"
+      - "SCADA"
+      - "mentorship"
+      - "Amazon"
+
+  - id: "proj-conveyor-inspection"
+    title: "Conveyor Visual Inspection System — Amazon"
+    company: "C&W Services / JLL (Amazon)"
+    industry: "Warehouse / Material Handling"
+    type: "System Commissioning"
+    description: >
+      Commissioned a conveyor visual inspection system, integrating sensors,
+      PLC logic, and HMI diagnostics for quality monitoring on material
+      handling lines.
+    technologies:
+      - "Rockwell PLC"
+      - "Sensors"
+      - "HMI"
+    tags:
+      - "commissioning"
+      - "inspection"
+      - "quality"
+
+  - id: "proj-leviathan"
+    title: "Leviathan Project — Production Deployment"
+    company: "C&W Services / JLL (Amazon)"
+    industry: "Warehouse / Material Handling"
+    type: "Software Deployment"
+    description: >
+      Customized, refactored with exception handling, and deployed the Leviathan
+      project into production. Provided integration and testing support for IOQ
+      projects in MCC1.
+    technologies:
+      - "Python"
+      - "Production deployment"
+    tags:
+      - "refactoring"
+      - "production"
+      - "IOQ"
+
+  - id: "proj-python-monitoring"
+    title: "Python-Based Maintenance Monitoring Programs"
+    company: "C&W Services / JLL (Amazon)"
+    industry: "Warehouse / Material Handling"
+    type: "Data & Monitoring"
+    description: >
+      Developed and delivered Python-based maintenance monitoring programs for
+      fault trending and downtime analysis on material handling systems.
+    technologies:
+      - "Python"
+      - "Data analysis"
+    tags:
+      - "monitoring"
+      - "fault trending"
+      - "downtime analysis"
+
+  - id: "proj-firefighter"
+    title: "Automated Firefighter Training SCADA System — Singapore Civil Defence Academy"
+    company: "Hexcel Solutions"
+    industry: "Defense / Training"
+    type: "SCADA / Safety System"
+    description: >
+      Designed and commissioned a Siemens PLC/SCADA-based firefighter training
+      simulator. Integrated hydraulics, motion control, and fire suppression
+      systems. Developed PLC logic for automated sequences, alarm management,
+      and data logging. Integrated LPG and Kerosene control for fire effects
+      with the highest safety standards.
+    outcomes:
+      - "Improved safety and reliability in live training environments"
+      - "Delivered documentation and operator training"
+    technologies:
+      - "Siemens PLC"
+      - "Omron PLC"
+      - "SCADA"
+      - "Hydraulics"
+      - "Motion Control"
+      - "Fire suppression"
+      - "LPG / Kerosene control"
+      - "Alarm management"
+    tags:
+      - "training simulator"
+      - "safety-critical"
+      - "fire effects"
+      - "Singapore"
+
+# ============================================================================
+# EDUCATION
+# ============================================================================
+education:
+  - degree: "Bachelor of Science in Computer Science"
+    institution: "California State University, East Bay"
+    location: "Hayward, CA"
+    start_date: "2018-06"
+    end_date: "2024-12"
+    status: "completed"
+    country: "United States"
+
+  - degree: "Diploma in Electronics, Computers & Communication Engineering"
+    institution: "Singapore Polytechnic"
+    location: "Singapore"
+    start_date: "2001-06"
+    end_date: "2004-04"
+    status: "completed"
+    country: "Singapore"
+
+# ============================================================================
+# TECHNICAL SKILLS (Flat searchable index)
+# ============================================================================
+technical_skills:
+  plc_platforms:
+    - "Rockwell Allen-Bradley ControlLogix"
+    - "Siemens S7-300"
+    - "Siemens S7-1500"
+    - "Mitsubishi FX"
+    - "Omron"
+  plc_languages:
+    - "Ladder Logic"
+    - "Structured Text (ST)"
+    - "Function Block Diagram (FBD)"
+  scada_hmi:
+    - "Ignition Vision"
+    - "Ignition Perspective"
+    - "FactoryTalk View"
+    - "LabVIEW"
+  programming:
+    - "Python"
+    - "SQL"
+    - "C"
+  databases:
+    - "PostgreSQL"
+    - "MySQL"
+    - "Ignition Historian"
+  protocols:
+    - "OPC UA"
+    - "Modbus TCP"
+    - "Ethernet/IP"
+    - "MQTT"
+    - "SECS/GEM"
+  engineering_software:
+    - "TIA Portal"
+    - "Studio 5000"
+    - "FactoryTalk"
+    - "Ignition Designer"
+    - "LabVIEW"
+    - "AutoCAD Electrical"
+  dev_tools:
+    - "GitLab"
+    - "VSCode"
+    - "Wireshark"
+  operating_systems:
+    - "Linux"
+    - "Windows"
+  hardware:
+    - "VFDs (Variable Frequency Drives)"
+    - "Servo Drives"
+    - "Fanuc Robotics"
+    - "National Instruments CompactDAQ"
+    - "Industrial Ethernet"
+    - "Motion Control systems"
+    - "Safety circuits and interlocks"
+  specializations:
+    - "PID tuning"
+    - "ATEX compliance"
+    - "Hazardous area installations"
+    - "Alarm management"
+    - "Predictive maintenance"
+    - "Root cause analysis"
+    - "Data acquisition"
+
+# ============================================================================
+# CAREER TIMELINE (Chronological for quick reference)
+# ============================================================================
+career_timeline:
+  - period: "2004–2005"
+    role: "Engineering Assistant"
+    company: "UTAC"
+    location: "Singapore"
+  - period: "2005–2008"
+    role: "Associate Engineer (CIM)"
+    company: "Chartered Semiconductor"
+    location: "Singapore"
+  - period: "2009–2010"
+    role: "System Engineer"
+    company: "Hexcel Solutions"
+    location: "Singapore"
+  - period: "2010–2012"
+    role: "Tooling Center Technician"
+    company: "GE International"
+    location: "Singapore"
+  - period: "2012–2015"
+    role: "Field Service Engineer"
+    company: "MHWirth"
+    location: "Singapore / Offshore"
+  - period: "2015–2018"
+    role: "Maintenance Technician (Automation)"
+    company: "Tesla / SolarCity"
+    location: "Fremont, CA"
+  - period: "2018–2025"
+    role: "EIC Engineer"
+    company: "Energy Recovery Inc."
+    location: "Bay Area, CA"
+  - period: "2025–present"
+    role: "Automation Engineer / Controls Lead"
+    company: "C&W / JLL (Amazon)"
+    location: "United States"
+
+# ============================================================================
+# RAG RETRIEVAL HINTS
+# ============================================================================
+retrieval_hints:
+  resume_tailoring:
+    - "When tailoring for SCADA roles, emphasize Ignition, FactoryTalk, Historian, and dashboard design."
+    - "When tailoring for PLC roles, emphasize Rockwell ControlLogix, Siemens S7, ladder logic, structured text."
+    - "When tailoring for robotics roles, emphasize Fanuc, motion control, servo drives."
+    - "When tailoring for R&D roles, emphasize NI DAQ, Python data acquisition, test rig commissioning."
+    - "When tailoring for offshore/oil & gas, emphasize ATEX, hazardous area, PID tuning, field commissioning."
+    - "When tailoring for manufacturing, emphasize Tesla experience, predictive maintenance, MTBF, high-volume lines."
+    - "When tailoring for warehouse/logistics, emphasize Amazon, material handling, conveyors, sortation, Ignition."
+  cover_letter_hooks:
+    - "20+ years spanning 4 countries and 7 industries"
+    - "Full lifecycle project ownership from concept to commissioning"
+    - "Unique blend of hands-on field engineering and software/data skills (Python, SQL, Git)"
+    - "Proven mentorship and team development track record"
+    - "CS degree complements deep industrial experience"
+  unique_differentiators:
+    - "Rare combination of CS degree + 20 years hands-on industrial automation"
+    - "International experience across Singapore, offshore, and US"
+    - "Comfortable in safety-critical and hazardous environments (ATEX, offshore rigs)"
+    - "Bridges gap between traditional controls engineering and modern software (Python, Git, databases)"
+    - "Experience across both legacy (Mitsubishi, IBM SiView) and modern platforms (Ignition, Rockwell)"

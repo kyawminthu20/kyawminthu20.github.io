@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ZooDirectory</string>
+    <string name="animal_name">Animal Name</string>
+    <string name="animal_image">Animal Image</string>
+    <string name="action_information">Information</string>
+    <string name="action_uninstall">Uninstall</string>
+</resources>

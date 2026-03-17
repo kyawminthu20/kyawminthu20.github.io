@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorTestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding = "10dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/shakercolor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize = "28sp"
+                android:text="Shake to get a toast and to switch color" />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/xval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize = "28sp"
+            android:text="X axis" />
+
+        <TextView
+            android:id="@+id/yval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize = "28sp"
+            android:text="Y axis" />
+
+        <TextView
+            android:id="@+id/zval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize = "28sp"
+            android:text="Z axis" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
