@@ -102,3 +102,58 @@ def test_empty_string_returns_unknown():
 
 def test_none_returns_unknown():
     assert sanitize_filename(None) == "Unknown"
+
+
+import build_resume
+from docx.shared import Pt, Inches
+from build_resume import build_header, make_doc
+
+
+def test_make_doc_margins():
+    doc = make_doc()
+    section = doc.sections[0]
+    assert section.left_margin == Inches(1)
+    assert section.right_margin == Inches(1)
+    assert section.top_margin == Inches(1)
+    assert section.bottom_margin == Inches(1)
+
+
+def test_make_doc_no_default_paragraph():
+    doc = make_doc()
+    assert len(doc.paragraphs) == 0
+
+
+def test_header_name_is_first_paragraph():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert doc.paragraphs[0].text == "Kyaw Min Thu"
+
+
+def test_header_name_is_bold():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert doc.paragraphs[0].runs[0].bold is True
+
+
+def test_header_name_font_size():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert doc.paragraphs[0].runs[0].font.size == Pt(16)
+
+
+def test_header_name_font_is_calibri():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert doc.paragraphs[0].runs[0].font.name == "Calibri"
+
+
+def test_header_contact_line_contains_email():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert "kyaw@kmtkn.me" in doc.paragraphs[1].text
+
+
+def test_header_contact_line_contains_phone():
+    doc = make_doc()
+    build_header(doc, VALID)
+    assert "+1 510 909 3716" in doc.paragraphs[1].text
