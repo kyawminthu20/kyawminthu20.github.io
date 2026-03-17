@@ -78,3 +78,27 @@ def test_missing_bullets_raises():
     bad_exp = [{"company": "Co", "role": "Eng", "dates": "2020"}]
     with pytest.raises(ValueError, match="bullets"):
         validate({**VALID, "experience": bad_exp})
+
+
+from build_resume import sanitize_filename
+
+
+def test_spaces_become_underscores():
+    assert sanitize_filename("Amazon Robotics") == "Amazon_Robotics"
+
+
+def test_special_chars_stripped():
+    assert sanitize_filename("C&W / JLL") == "CW__JLL"
+
+
+def test_capped_at_50_chars():
+    long = "A" * 60
+    assert len(sanitize_filename(long)) == 50
+
+
+def test_empty_string_returns_unknown():
+    assert sanitize_filename("") == "Unknown"
+
+
+def test_none_returns_unknown():
+    assert sanitize_filename(None) == "Unknown"
