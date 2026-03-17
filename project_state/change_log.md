@@ -11,6 +11,13 @@ Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
 
+## 2026-03-16 — Domain strategy corrected; repo files finalized
+
+- Removed CNAME file — CNAME was breaking GitHub Pages by pointing to an unconfigured domain.
+- Domain strategy: kyawminthu20.github.io is the canonical site URL. kmtkn.me will redirect TO it via domain registrar URL forwarding (not via GitHub Pages CNAME).
+- Updated all URL references (canonical, OG, sitemap, robots.txt, _config.yml) from kmtkn.me to kyawminthu20.github.io.
+- Email addresses (kyaw@kmtkn.me) unchanged — those are email, not site URLs.
+
 ## 2026-03-16 — Repo files created; site ready for deploy
 
 - Created `CNAME` (kmtkn.me) — custom domain configured for GitHub Pages.
