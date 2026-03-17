@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kmtkn.me/sitemap.xml
+Sitemap: https://kyawminthu20.github.io/sitemap.xml
