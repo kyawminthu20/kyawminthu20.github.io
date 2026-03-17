@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Read(/Users/kyawminthu/Dev/tools/**)"
+    ],
+    "additionalDirectories": [
+      "/Users/kyawminthu/Dev/tools"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Project: Control System Tools. Stack: Jekyll 4.2 + Python 3.13. Authoritative content in control-standards/rag/. Track changes in project_state/.'"
+          }
+        ]
+      }
+    ]
+  }
+}
