@@ -1,2 +1,5 @@
 temporary/
 .DS_Store
+resumes/*.docx
+resumes/current.json
+.venv/
