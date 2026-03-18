@@ -1,6 +1,6 @@
 # Project Change Log
 
-**Last Updated:** 2026-03-16
+**Last Updated:** 2026-03-18
 **Status:** Active
 
 ## Purpose
@@ -10,6 +10,13 @@ This file tracks meaningful project-level changes for the current repository.
 Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
+
+## 2026-03-18 — Head metadata, hero copy, and competencies rewritten (Tasks 3–5)
+
+- Task 3: Updated meta description, OG description, Twitter Card description to remove "20+" and "industrial automation, and control system design" phrasing. Added `description` field to JSON-LD Person block.
+- Task 4: Replaced hero summary paragraph — removed "Results-driven", "full-lifecycle", "improve uptime" buzzwords. New copy is factual and concise (2 lines).
+- Task 5: Replaced 8-card competency grid with 5-card grid. Removed Database & Historian, Version Control/Mentorship, and Control System Development cards. Added Programming and Hardware cards with specific tooling detail.
+- Commit: e0f6e45
 
 ## 2026-03-16 — Domain strategy corrected; repo files finalized
 

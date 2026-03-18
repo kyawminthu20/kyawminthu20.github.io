@@ -1,6 +1,6 @@
 # Project State
 
-**Last Updated:** 2026-03-16
+**Last Updated:** 2026-03-18
 **Status:** Active
 **Current Phase:** Phase 5 — Ready to Deploy
 **Next Phase:** Phase 2 QUEUED — GitHub Pages Build
@@ -30,17 +30,16 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 
 ## Active Priorities
 
-- Rewrite the site copy in a quieter, more personal voice.
-- Decide what belongs on the public site and what should remain source material only.
-- Choose a simple GitHub Pages structure and move the prototype into it.
-- Select a small number of project examples that are easy to explain with evidence already in the repo.
+- Continue rewriting `index.html` copy section by section toward a quieter, more factual voice.
+- Tasks 3, 4, and 5 (head metadata, hero copy, competencies) are complete — committed as e0f6e45.
+- Remaining content tasks: Task 6 (trim Amazon bullets), Task 7 (rewrite Projects section).
+- Final task: Task 8 verification and project_state update.
 
 ## What Should Be Implemented Next
 
-1. Reduce the prototype copy to a more grounded introduction, shorter experience summaries, and simpler project descriptions.
-2. Decide the public information architecture. A likely first pass is `About`, `Experience`, `Selected Work`, `Education`, and `Contact`.
-3. Choose whether GitHub Pages should publish from the repository root or from a `docs/` directory.
-4. Separate publishable assets from private or reference-only material before the repository is made public.
+1. Task 6 — Trim Amazon experience bullets in `index.html`.
+2. Task 7 — Rewrite Projects section in `index.html`.
+3. Task 8 — Final verification pass across all content changes and update project_state files.
 
 ## Source Of Truth By Topic
 
