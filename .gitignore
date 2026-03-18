@@ -5,3 +5,4 @@ resumes/current.json
 .venv/
 secrets.properties
 local.defaults.properties
+.superpowers/
