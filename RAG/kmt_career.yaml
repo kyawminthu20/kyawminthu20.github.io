@@ -36,13 +36,9 @@ summary:
   headline: "Automation Controls Engineer"
   years_of_experience: "20+"
   core_identity: >
-    Results-driven Automation Controls Engineer with over 20 years of
-    experience in control systems, industrial automation, and electrical
-    engineering. Skilled in PLC/SCADA design, Ignition development, and
-    complex system integration across manufacturing, R&D, and material
-    handling environments. Proven ability to lead full project lifecycles,
-    mentor engineering teams, and implement automation strategies that
-    improve system uptime, safety, and reliability.
+    20 years building and commissioning industrial control systems — PLC,
+    SCADA, and instrumentation across offshore drilling, R&D, manufacturing,
+    and warehouse automation. Based in the San Francisco Bay Area.
   alternate_summary: >
     Hands-on automation engineer with 20+ years of experience building,
     programming, and commissioning industrial control systems. Experienced
@@ -388,7 +384,7 @@ experience:
 # ============================================================================
 projects:
   - id: "proj-siemens-upgrade"
-    title: "Full Automation Conversion — Siemens PLC Upgrade (Offshore Drilling)"
+    title: "Full PLC Conversion — Hydraulic Top Drive, Offshore Drilling"
     company: "MHWirth"
     industry: "Offshore Oil & Gas"
     type: "Controls Conversion"
@@ -444,33 +440,31 @@ projects:
       - "high-pressure"
       - "data acquisition"
 
-  - id: "proj-amazon-scada"
-    title: "Material Handling & SCADA Optimization — Amazon / JLL"
+  - id: "proj-amazon-plc-ipc"
+    title: "PLC & IPC Control Monitoring — Amazon Fulfillment Centers"
     company: "C&W Services / JLL (Amazon)"
     industry: "Warehouse / Material Handling"
-    type: "SCADA Optimization"
+    type: "Control Monitoring"
     description: >
-      Lead automation engineer for Amazon Fulfillment Centers, supporting Rockwell
-      PLCs, FactoryTalk SCADA, and Ignition-based visualization. Perform root cause
-      analysis and troubleshoot complex PLC/HMI logic across conveyors, sorters, and
-      robotic systems. Standardize Ignition HMI templates, manage version control
-      with GitLab, and mentor technicians.
+      Built monitoring dashboards reading live PLC and IPC data across conveyor
+      and sortation systems in 24/7 fulfillment centers. Covered commissioning
+      and maintenance of control panels and IPCs. Developed Python-based tools
+      for fault trending and downtime analysis.
     outcomes:
-      - "Improved throughput and reliability"
-      - "Standardized HMI templates across site"
-      - "Python-based fault trending and downtime analysis"
+      - "Improved fault visibility and downtime analysis"
+      - "Commissioned and maintained control panels and IPCs"
+      - "Python-based monitoring tools deployed to production"
     technologies:
       - "Rockwell ControlLogix"
-      - "FactoryTalk View"
-      - "Ignition (Vision & Perspective)"
-      - "Fanuc Robotics"
+      - "FactoryTalk"
       - "Python"
-      - "GitLab"
+      - "IPC"
     tags:
       - "warehouse"
       - "material handling"
-      - "SCADA"
-      - "mentorship"
+      - "PLC"
+      - "IPC"
+      - "control monitoring"
       - "Amazon"
 
   - id: "proj-conveyor-inspection"
