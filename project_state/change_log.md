@@ -11,6 +11,14 @@ Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
 
+## 2026-03-18 — Experience bullets and projects section rewritten (Tasks 6–7)
+
+- Task 6: Trimmed Amazon experience (C&W Services / JLL) from 7 bullets to 4. Removed redundant SCADA/HMI line, merged Fanuc lead and support roles, consolidated Python and inspection system bullets. Focus: Controls lead, Fanuc lead, Python tools, conveyor system.
+- Task 7a: Rewrote 3 project cards to remove marketing language and `project-stat` metrics. Siemens project: removed "30% uptime improvement" metric. R&D project: simplified, added "CompactDAQ" detail, "Safety interlocks" tag. Amazon project: retitled to "Control Monitoring" (was "Material Handling & SCADA Optimization"), refocused on monitoring dashboards and Python tools.
+- Task 7b: Deleted firefighter training card (4th card removed). Grid now contains 3 project cards.
+- Commit: e5a2068
+- Phase: Content complete; ready for final verification and deployment.
+
 ## 2026-03-18 — Head metadata, hero copy, and competencies rewritten (Tasks 3–5)
 
 - Task 3: Updated meta description, OG description, Twitter Card description to remove "20+" and "industrial automation, and control system design" phrasing. Added `description` field to JSON-LD Person block.
