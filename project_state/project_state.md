@@ -2,8 +2,8 @@
 
 **Last Updated:** 2026-03-18
 **Status:** Active
-**Current Phase:** Phase 5 — Ready to Deploy
-**Next Phase:** Phase 2 QUEUED — GitHub Pages Build
+**Current Phase:** Phase 5 — Content Complete, Ready for Deployment
+**Next Phase:** Phase 6 — GitHub Pages Build & Publication
 **Delivery Target:** GitHub Pages static site for personal use
 
 ## Purpose
@@ -30,16 +30,14 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 
 ## Active Priorities
 
-- Continue rewriting `index.html` copy section by section toward a quieter, more factual voice.
-- Tasks 3, 4, and 5 (head metadata, hero copy, competencies) are complete — committed as e0f6e45.
-- Remaining content tasks: Task 6 (trim Amazon bullets), Task 7 (rewrite Projects section).
-- Final task: Task 8 verification and project_state update.
+- All content rewriting complete (Tasks 3–7).
+- Task 6 & 7 committed as e5a2068: Amazon experience trimmed to 4 focused bullets, Projects section rewritten (3 cards instead of 4, Amazon card retitled to "Control Monitoring").
+- Final task pending: Task 8 (final verification and project_state completion).
 
 ## What Should Be Implemented Next
 
-1. Task 6 — Trim Amazon experience bullets in `index.html`.
-2. Task 7 — Rewrite Projects section in `index.html`.
-3. Task 8 — Final verification pass across all content changes and update project_state files.
+1. Task 8 — Final verification pass and project_state files completion.
+2. Prepare for deployment: review secrets, finalize GitHub Pages configuration.
 
 ## Source Of Truth By Topic
 
