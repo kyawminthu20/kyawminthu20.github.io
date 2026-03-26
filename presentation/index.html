@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* PIN GATE */
+    #gate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    #gate h1 {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    #pin-display {
+      display: flex;
+      gap: 12px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #444;
+      background: transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .dot.filled {
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+
+    .dot.error {
+      background: #e05555;
+      border-color: #e05555;
+    }
+
+    #keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 64px);
+      gap: 10px;
+    }
+
+    .key {
+      height: 64px;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      font-size: 1.25rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.1s, transform 0.1s;
+      user-select: none;
+    }
+
+    .key:active, .key.pressed {
+      background: #2e2e2e;
+      transform: scale(0.94);
+    }
+
+    .key.del {
+      font-size: 1rem;
+      color: #888;
+    }
+
+    /* VIEWER */
+    #viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+    }
+
+    #viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="gate">
+    <h1>Enter PIN</h1>
+    <div id="pin-display">
+      <div class="dot" id="d0"></div>
+      <div class="dot" id="d1"></div>
+      <div class="dot" id="d2"></div>
+      <div class="dot" id="d3"></div>
+    </div>
+    <div id="keypad">
+      <button class="key" data-v="1">1</button>
+      <button class="key" data-v="2">2</button>
+      <button class="key" data-v="3">3</button>
+      <button class="key" data-v="4">4</button>
+      <button class="key" data-v="5">5</button>
+      <button class="key" data-v="6">6</button>
+      <button class="key" data-v="7">7</button>
+      <button class="key" data-v="8">8</button>
+      <button class="key" data-v="9">9</button>
+      <button class="key del" data-v="del">&#9003;</button>
+      <button class="key" data-v="0">0</button>
+      <button class="key" data-v="" style="visibility:hidden"></button>
+    </div>
+  </div>
+
+  <div id="viewer">
+    <iframe
+      id="slides"
+      src=""
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <script>
+    const CORRECT = "1038";
+    const PPTX_URL = "https://kyawminthu20.github.io/KyawMinThu_Controls_Presentation.pptx";
+    const EMBED_URL = "https://view.officeapps.live.com/op/embed.aspx?src=" + encodeURIComponent(PPTX_URL);
+
+    let entered = "";
+
+    function updateDots(shake) {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById("d" + i);
+        dot.classList.toggle("filled", i < entered.length && !shake);
+        dot.classList.toggle("error", shake);
+      }
+    }
+
+    function handleKey(v) {
+      if (v === "del") {
+        entered = entered.slice(0, -1);
+        updateDots(false);
+        return;
+      }
+      if (entered.length >= 4) return;
+      entered += v;
+      updateDots(false);
+
+      if (entered.length === 4) {
+        if (entered === CORRECT) {
+          document.getElementById("gate").style.display = "none";
+          const viewer = document.getElementById("viewer");
+          viewer.style.display = "block";
+          document.getElementById("slides").src = EMBED_URL;
+        } else {
+          updateDots(true);
+          setTimeout(() => {
+            entered = "";
+            updateDots(false);
+          }, 600);
+        }
+      }
+    }
+
+    document.querySelectorAll(".key").forEach(btn => {
+      btn.addEventListener("click", () => handleKey(btn.dataset.v));
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key >= "0" && e.key <= "9") handleKey(e.key);
+      if (e.key === "Backspace") handleKey("del");
+    });
+  </script>
+
+</body>
+</html>
