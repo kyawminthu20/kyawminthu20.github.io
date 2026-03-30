@@ -774,6 +774,173 @@ section.visible {
   margin-top: 0.25rem;
 }
 
+/* ── RCA HIGHLIGHTS ── */
+.rca-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .rca-grid { grid-template-columns: 1fr; }
+}
+
+.rca-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.rca-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-red), transparent);
+}
+
+.rca-case-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 0.6rem;
+}
+
+.rca-case-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.rca-rows { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.rca-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.5rem;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.rca-row-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-top: 1px;
+}
+
+.rca-row-value { color: var(--text-secondary); }
+.rca-row-value.highlight { color: var(--accent-green); font-weight: 500; }
+
+/* ── DIAGRAMS ── */
+.diagram-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .diagram-grid { grid-template-columns: 1fr; }
+}
+
+.diagram-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.diagram-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  margin-bottom: 1.25rem;
+}
+
+.diag-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.diag-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.diag-step.fault {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  background: rgba(255,82,82,0.06);
+}
+
+.diag-step.result {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(0,230,118,0.06);
+}
+
+.diag-connector {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 0 0 22px;
+}
+
+.diag-connector.fault-line { background: var(--accent-red); }
+
+.diag-step-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+/* ── SYSTEM THINKING ── */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.principle-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.principle-card::before {
+  content: '→';
+  color: var(--accent-green);
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
 /* ── CONTACT ── */
 .contact-section {
   text-align: center;
@@ -894,6 +1061,7 @@ footer {
     </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#rca">RCA</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
@@ -976,6 +1144,75 @@ footer {
     <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Protocols — OPC UA, Modbus TCP, Ethernet/IP, MQTT, SECS/GEM</div></div>
     <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Programming — Python, SQL, C, Ladder Logic, Structured Text, FBD</div></div>
     <div class="competency-card"><div class="comp-indicator"></div><div class="comp-text">Hardware — Fanuc Robotics, VFDs, Servo Drives, NI CompactDAQ, Safety circuits</div></div>
+  </div>
+</section>
+
+<!-- RCA HIGHLIGHTS -->
+<section id="rca">
+  <div class="section-header">
+    <span class="section-tag">Root Cause Analysis</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.02</span>
+  </div>
+  <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:1.75rem; max-width:640px;">
+    Two cases that demonstrate structured debugging across different failure types — process layer failure and human-system interaction failure.
+  </p>
+  <div class="rca-grid">
+
+    <div class="rca-card">
+      <div class="rca-case-label">Case 01 · Process Failure</div>
+      <div class="rca-case-title">Fire Training Simulator — Intermittent Ignition Failure</div>
+      <div class="rca-rows">
+        <div class="rca-row">
+          <span class="rca-row-label">Symptom</span>
+          <span class="rca-row-value">Ignition failed intermittently — no alarms, control logic correct</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Isolation</span>
+          <span class="rca-row-value">Control, electrical, and mechanical layers verified. Air supply uninstrumented — no visibility</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Root Cause</span>
+          <span class="rca-row-value">Clogged air filter → insufficient pressure at ignition phase</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Fix</span>
+          <span class="rca-row-value">Replaced filter, added pressure transmitter, integrated into monitoring, PM schedule implemented</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Outcome</span>
+          <span class="rca-row-value highlight">Ignition immediate and stable · Zero recurrence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rca-card">
+      <div class="rca-case-label">Case 02 · Human-System Interaction</div>
+      <div class="rca-case-title">Amazon Fulfillment — Intermittent System Shutdown</div>
+      <div class="rca-rows">
+        <div class="rca-row">
+          <span class="rca-row-label">Symptom</span>
+          <span class="rca-row-value">Random system stops — no alarms, no deterministic pattern, not reproducible</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Challenge</span>
+          <span class="rca-row-value">PLC trending insufficient for rare events — no logging, trigger source unknown</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Approach</span>
+          <span class="rca-row-value">Built Python monitoring system capturing all stop conditions, permissives, and interlocks 24/7 with real-time Slack alerting</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Root Cause</span>
+          <span class="rca-row-value">Unintentional manual input — intermittent button trigger by associate, invisible without logging</span>
+        </div>
+        <div class="rca-row">
+          <span class="rca-row-label">Outcome</span>
+          <span class="rca-row-value highlight">Root cause confirmed · Full event visibility · Zero recurrence</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1196,6 +1433,56 @@ footer {
       </div>
     </div>
 
+
+  </div>
+</section>
+
+<!-- SYSTEM THINKING + DIAGRAMS -->
+<section id="approach">
+  <div class="section-header">
+    <span class="section-tag">System Thinking</span>
+    <div class="section-line"></div>
+    <span class="section-id">SYS.04</span>
+  </div>
+
+  <div class="principles-grid">
+    <div class="principle-card">Control system behavior ≠ system behavior. Physical process determines the actual outcome.</div>
+    <div class="principle-card">Failures often originate outside the control system — in the mechanical, process, or human layer.</div>
+    <div class="principle-card">When existing tools lack visibility, build the instrumentation layer before attempting diagnosis.</div>
+    <div class="principle-card">Isolate domains independently. Do not replace components until the root cause is confirmed.</div>
+  </div>
+
+  <div class="diagram-grid">
+
+    <div class="diagram-card">
+      <div class="diagram-title">// Failure Path — Fire Ignition RCA</div>
+      <div class="diag-flow">
+        <div class="diag-step"><span class="diag-step-icon">01</span>Compressor — Air source</div>
+        <div class="diag-connector fault-line"></div>
+        <div class="diag-step fault"><span class="diag-step-icon">⚠</span>Air filter — Heavily clogged</div>
+        <div class="diag-connector fault-line"></div>
+        <div class="diag-step fault"><span class="diag-step-icon">↓</span>Pressure drop — Insufficient at ignition phase</div>
+        <div class="diag-connector fault-line"></div>
+        <div class="diag-step fault"><span class="diag-step-icon">✕</span>Burner — Ignition fails</div>
+        <div class="diag-connector"></div>
+        <div class="diag-step result"><span class="diag-step-icon">✓</span>Fix: filter replaced + pressure transmitter added</div>
+      </div>
+    </div>
+
+    <div class="diagram-card">
+      <div class="diagram-title">// Monitoring System — Intermittent Shutdown</div>
+      <div class="diag-flow">
+        <div class="diag-step"><span class="diag-step-icon">01</span>PLC signals — Stop cmds, permissives, interlocks</div>
+        <div class="diag-connector"></div>
+        <div class="diag-step"><span class="diag-step-icon">02</span>Python monitoring — 24/7 continuous capture</div>
+        <div class="diag-connector"></div>
+        <div class="diag-step"><span class="diag-step-icon">03</span>Slack alerting — Real-time on any stop event</div>
+        <div class="diag-connector"></div>
+        <div class="diag-step fault"><span class="diag-step-icon">⚠</span>Root cause captured — Unintentional button input</div>
+        <div class="diag-connector"></div>
+        <div class="diag-step result"><span class="diag-step-icon">✓</span>Full visibility established · Issue resolved</div>
+      </div>
+    </div>
 
   </div>
 </section>
