@@ -502,49 +502,137 @@
       </div>
     </div>
 
-    <!-- ── 17: SECTION — PROJECTS ── -->
-    <div class="slide layout-section" data-index="16">
-      <span class="section-num">04</span>
-      <div>
-        <div class="section-label">Section Four</div>
-        <h1 class="slide-title" style="font-size:clamp(2rem,5vw,4rem);">Supporting Projects</h1>
-        <p class="subtitle">Test loop systems · Amazon IPC · Industrial monitoring</p>
-      </div>
-    </div>
-
-    <!-- ── 18: AMAZON IPC (TIGHTENED) ── -->
-    <div class="slide" data-index="17">
-      <div class="tag">Amazon IPC / Industrial</div>
-      <h2 class="slide-title">Intermittent IPC Fault Investigation</h2>
-      <div class="two-col">
+    <!-- ── 17: RCA CASE 2 — PROBLEM + CHALLENGE ── -->
+    <div class="slide" data-index="16">
+      <div class="tag green">RCA Case 2</div>
+      <h2 class="slide-title">Intermittent System Shutdown — No Observable Cause</h2>
+      <div class="two-col" style="margin-top:12px;">
         <div class="col-box">
-          <h4>Symptom</h4>
+          <h4>Problem Statement</h4>
           <ul class="bullets" style="gap:10px;">
-            <!-- FIXED: engineering language -->
-            <li>Intermittent IPC faults with no deterministic pattern</li>
-            <li>Standard diagnostics returned no actionable fault</li>
-            <li>Could not be reproduced on demand</li>
+            <li>System stopped unexpectedly with no alarm</li>
+            <li>Occurred intermittently — daily or a few times per week</li>
+            <li>Not reproducible on demand</li>
+            <li>Standard diagnostics returned no fault condition</li>
           </ul>
         </div>
         <div class="col-box">
-          <h4 class="green">Approach &amp; Result</h4>
-          <ul class="bullets green" style="gap:10px;">
-            <!-- FIXED: tighter language -->
-            <li>Correlated multi-source logs to identify timing mismatch</li>
-            <li>Isolated the event sequence responsible for the fault</li>
-            <li>Built monitoring tool to visualize system behavior over time</li>
-            <li>Faster troubleshooting, improved system observability</li>
+          <h4 class="orange">Key Challenges</h4>
+          <ul class="bullets orange" style="gap:10px;">
+            <li>No logging or historical event data available</li>
+            <li>PLC trending insufficient — event rarity made capture impossible</li>
+            <li>Could not observe the trigger condition in real time</li>
+            <li>Unknown whether source was control, process, or human</li>
           </ul>
         </div>
       </div>
       <div class="callout">
-        <strong>Same principle:</strong> Correlated data across system boundaries to isolate the domain before attempting any fix.
+        <strong>Key decision:</strong> PLC trending was insufficient due to event rarity — I needed to implement continuous external monitoring before any diagnosis was possible.
       </div>
     </div>
 
-    <!-- ── 19: SECTION — RELEVANCE ── -->
-    <div class="slide layout-section" data-index="18">
-      <span class="section-num">05</span>
+    <!-- ── 18: RCA CASE 2 — STRATEGY + IMPLEMENTATION ── -->
+    <div class="slide" data-index="17">
+      <div class="tag green">Investigation Strategy</div>
+      <h2 class="slide-title">Building Visibility to Find the Fault</h2>
+      <div class="two-col">
+        <div class="col-box">
+          <h4>Monitoring Scope</h4>
+          <ul class="bullets green" style="gap:10px;">
+            <li>All stop conditions and stop commands</li>
+            <li>All permissives and run conditions</li>
+            <li>All state transitions — continuously</li>
+            <li>Any event that could prevent or interrupt operation</li>
+          </ul>
+        </div>
+        <div class="col-box" style="border-color:var(--accent);">
+          <h4>Implementation</h4>
+          <ul class="bullets" style="gap:10px;">
+            <li>Implemented a continuous monitoring system in Python</li>
+            <li>24/7 signal capture — no event missed regardless of timing</li>
+            <li>Real-time alerting via Slack on any stop event</li>
+            <li>Correlated multi-source logs to identify timing patterns</li>
+          </ul>
+        </div>
+      </div>
+      <blockquote>"When the existing tools are insufficient, build the visibility layer first — then diagnose."</blockquote>
+    </div>
+
+    <!-- ── 19: RCA CASE 2 — ROOT CAUSE + FIX + IMPACT ── -->
+    <div class="slide" data-index="18">
+      <div class="tag green">Steps 5–7 · Resolution</div>
+      <h2 class="slide-title">Root Cause, Fix &amp; Outcome</h2>
+      <div class="two-col">
+        <div class="col-box" style="border-color:var(--red);">
+          <h4 style="color:var(--red);">Root Cause</h4>
+          <ul class="bullets" style="gap:8px;">
+            <li>Intermittent manual input — unintentional button press by associate</li>
+            <li>Not previously capturable due to complete absence of event logging</li>
+            <li>Human interaction as a hidden failure source — not suspected initially</li>
+            <li>Only visible through continuous real-time monitoring</li>
+          </ul>
+        </div>
+        <div class="col-box" style="border-color:var(--green);">
+          <h4 class="green">Corrective Actions</h4>
+          <ul class="bullets green" style="gap:8px;">
+            <li>Identified exact triggering condition through monitoring data</li>
+            <li>Monitoring and alerting system permanently retained</li>
+            <li>Improved system observability — all stop events now visible</li>
+            <li>Enabled immediate response and verification on any future event</li>
+          </ul>
+        </div>
+      </div>
+      <div class="impact-row">
+        <div class="impact-badge">
+          <div class="before">Before</div>
+          <div class="after">Random unexplained stops · No data · No diagnosis possible</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--muted);font-size:1.4rem;">→</div>
+        <div class="impact-badge">
+          <div class="before">After</div>
+          <div class="after">Root cause confirmed · Full event visibility · Zero recurrence</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 20: COMPARISON TABLE ── -->
+    <div class="slide" data-index="19">
+      <div class="tag green">RCA Summary</div>
+      <h2 class="slide-title">Two Types of Failures — Two Different Approaches</h2>
+      <div style="margin-top:20px; overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:clamp(0.82rem,1.4vw,0.96rem);">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border);">
+              <th style="text-align:left; padding:12px 16px; color:var(--muted); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; width:18%;">Type</th>
+              <th style="text-align:left; padding:12px 16px; color:var(--muted); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; width:22%;">Case</th>
+              <th style="text-align:left; padding:12px 16px; color:var(--muted); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; width:30%;">Approach</th>
+              <th style="text-align:left; padding:12px 16px; color:var(--muted); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; width:30%;">Key Tool</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border); background:var(--surface);">
+              <td style="padding:16px; color:var(--accent2); font-weight:600;">Process failure</td>
+              <td style="padding:16px;">Fire ignition failure</td>
+              <td style="padding:16px; color:#ccc;">Physical system analysis — domain isolation across control, mechanical, and process layers</td>
+              <td style="padding:16px; color:#ccc;">Add instrumentation · Pressure transmitter · PM schedule</td>
+            </tr>
+            <tr style="background:var(--surface2);">
+              <td style="padding:16px; color:var(--accent); font-weight:600;">Intermittent / human-system</td>
+              <td style="padding:16px;">Random system shutdown</td>
+              <td style="padding:16px; color:#ccc;">Continuous monitoring — capture what existing tools could not see</td>
+              <td style="padding:16px; color:#ccc;">Python monitoring system · Real-time Slack alerting · 24/7 logging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote style="margin-top:24px;">
+        "The root cause of the second case was an intermittent manual input — solved by implementing a 24/7 monitoring system to capture and correlate stop conditions in real time."
+      </blockquote>
+    </div>
+
+    <!-- ── 22: SECTION — RELEVANCE ── -->
+    <div class="slide layout-section" data-index="21">
+      <span class="section-num">04</span>
       <div>
         <div class="section-label">Section Five</div>
         <h1 class="slide-title" style="font-size:clamp(2rem,5vw,4rem);">Relevance &amp; Fit</h1>
