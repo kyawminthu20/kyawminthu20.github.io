@@ -6,3 +6,16 @@ resumes/current.json
 secrets.properties
 local.defaults.properties
 .superpowers/
+
+# Private planning notes
+planning/things_to_fix.md
+planning/control_system_machine_state_model.md
+planning/servo_tuning.md
+
+# Private presentation working files
+presentation/feedback.md
+presentation/presentation data.md
+presentation/add_another_RCA_example.md
+presentation/documentation.md
+presentation/landing_page.md
+presentation/RCA_Presentation_Kyaw.pptx
