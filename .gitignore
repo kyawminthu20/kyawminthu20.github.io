@@ -7,10 +7,8 @@ secrets.properties
 local.defaults.properties
 .superpowers/
 
-# Private planning notes
-planning/things_to_fix.md
-planning/control_system_machine_state_model.md
-planning/servo_tuning.md
+# Private planning notes (all files)
+planning/
 
 # Private presentation working files
 presentation/feedback.md
