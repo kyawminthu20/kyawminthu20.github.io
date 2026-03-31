@@ -109,9 +109,9 @@
     .diag-node.highlight { border-color: var(--red); background: rgba(224,85,85,0.08); }
     .diag-node.highlight .value { color: var(--red); }
     .diag-arrow { flex-shrink: 0; padding: 0 10px; color: var(--muted); font-size: 1.2rem; }
-    .diag-down { display: flex; flex-direction: column; align-items: center; margin-top: 12px; }
-    .diag-vert  { width: 2px; height: 28px; background: var(--red); margin: 0 auto; }
-    .diag-result { background: rgba(224,85,85,0.12); border: 1px solid var(--red); border-radius: 8px; padding: 12px 20px; color: var(--red); font-size: 0.9rem; font-weight: 600; text-align: center; }
+    .diag-col   { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .diag-vert  { width: 2px; height: 28px; background: var(--red); }
+    .diag-result { background: rgba(224,85,85,0.12); border: 1px solid var(--red); border-radius: 8px; padding: 12px 20px; color: var(--red); font-size: 0.9rem; font-weight: 600; text-align: center; white-space: nowrap; }
 
     /* impact badge */
     .impact-row { display: flex; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
@@ -357,9 +357,13 @@
           <div class="value">Air Source</div>
         </div>
         <div class="diag-arrow">→</div>
-        <div class="diag-node highlight">
-          <div class="label">Air Filter</div>
-          <div class="value">Heavily Clogged ⚠</div>
+        <div class="diag-col">
+          <div class="diag-node highlight">
+            <div class="label">Air Filter</div>
+            <div class="value">Heavily Clogged ⚠</div>
+          </div>
+          <div class="diag-vert"></div>
+          <div class="diag-result">Insufficient air pressure → ignition fails</div>
         </div>
         <div class="diag-arrow">→</div>
         <div class="diag-node">
@@ -371,10 +375,6 @@
           <div class="label">Burner</div>
           <div class="value">Ignition Phase</div>
         </div>
-      </div>
-      <div class="diag-down" style="margin-left:220px;">
-        <div class="diag-vert"></div>
-        <div class="diag-result">Insufficient air pressure → ignition fails</div>
       </div>
       <div class="two-col" style="margin-top:22px;">
         <div class="col-box">
