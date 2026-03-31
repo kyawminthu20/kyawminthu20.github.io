@@ -124,6 +124,7 @@
     .nav-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.1s; }
     .nav-btn:hover { background: var(--surface2); }
     .nav-btn:disabled { opacity: 0.25; cursor: default; }
+    #btn-fs { position: absolute; right: 12px; font-size: 0.85rem; }
 
     #progress-dots { display: flex; gap: 6px; align-items: center; }
     .pdot { width: 6px; height: 6px; border-radius: 50%; background: #333; transition: background 0.2s, transform 0.2s; cursor: pointer; }
@@ -701,6 +702,7 @@
     <button class="nav-btn" id="btn-prev">&#8592;</button>
     <div id="progress-dots"></div>
     <button class="nav-btn" id="btn-next">&#8594;</button>
+    <button class="nav-btn" id="btn-fs" title="Fullscreen (F)">⛶</button>
   </div>
 </div>
 
@@ -737,11 +739,32 @@
 
   document.getElementById("btn-prev").addEventListener("click", () => goTo(cur - 1));
   document.getElementById("btn-next").addEventListener("click", () => goTo(cur + 1));
+
+  /* Fullscreen */
+  const btnFs = document.getElementById("btn-fs");
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+      btnFs.textContent = "✕";
+      btnFs.title = "Exit Fullscreen (F or Esc)";
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  btnFs.addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+      btnFs.textContent = "⛶";
+      btnFs.title = "Fullscreen (F)";
+    }
+  });
+
   document.addEventListener("keydown", e => {
     if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") { e.preventDefault(); goTo(cur + 1); }
     if (e.key === "ArrowLeft"  || e.key === "ArrowUp")                    { e.preventDefault(); goTo(cur - 1); }
     if (e.key === "Home") goTo(0);
     if (e.key === "End")  goTo(total - 1);
+    if (e.key === "f" || e.key === "F") toggleFullscreen();
   });
 </script>
 <script>
