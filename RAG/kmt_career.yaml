@@ -184,8 +184,8 @@ experience:
       - "Standardize Ignition templates and dashboards, perform version-controlled updates in GitLab."
       - "Mentor technicians on best practices in PLC troubleshooting and control logic optimization."
       - "Act as site technical expert, resolving complex controls issues and supporting cross-functional teams."
-      - "Customized, refactored with exception handling, and deployed the Leviathan project into production."
-      - "Provided integration and testing support for IOQ projects in MCC1."
+      - "Customized, refactored with exception handling, and deployed a production monitoring system for high-speed sortation equipment."
+      - "Provided integration and testing support for IOQ commissioning projects on high-speed conveyor systems."
       - "Support tech upgrades, vendor coordination, and performance reporting across networks."
 
   - id: "exp-eri"
@@ -485,15 +485,16 @@ projects:
       - "inspection"
       - "quality"
 
-  - id: "proj-leviathan"
-    title: "Leviathan Project — Production Deployment"
+  - id: "proj-sortation-monitor"
+    title: "Sortation Monitoring System — Production Deployment"
     company: "C&W Services / JLL (Amazon)"
     industry: "Warehouse / Material Handling"
     type: "Software Deployment"
     description: >
-      Customized, refactored with exception handling, and deployed the Leviathan
-      project into production. Provided integration and testing support for IOQ
-      projects in MCC1.
+      Customized, refactored with exception handling, and deployed a real-time
+      monitoring system for high-speed sortation equipment into production.
+      Provided integration and testing support for IOQ commissioning projects
+      on conveyor control systems.
     technologies:
       - "Python"
       - "Production deployment"

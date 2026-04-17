@@ -170,7 +170,7 @@ Before regenerating the HTML, update `RAG/kmt_career.yaml`:
    - `proj-siemens-upgrade` → Project 1
    - `proj-rd-test-rig` → Project 2
    - `proj-amazon-plc-ipc` → Project 3
-   - All others (`proj-conveyor-inspection`, `proj-leviathan`, `proj-python-monitoring`, `proj-firefighter`) remain in YAML as reference data but do not appear in the site's project section.
+   - All others (`proj-conveyor-inspection`, `proj-python-monitoring`, `proj-firefighter`) remain in YAML as reference data but do not appear in the site's project section.
 
 ---
 
