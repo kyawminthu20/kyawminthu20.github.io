@@ -1,6 +1,6 @@
 # Project Change Log
 
-**Last Updated:** 2026-03-18
+**Last Updated:** 2026-06-07
 **Status:** Active
 
 ## Purpose
@@ -10,6 +10,21 @@ This file tracks meaningful project-level changes for the current repository.
 Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
+
+## 2026-06-07 — Portfolio repositioning toward Control Systems / semiconductor (root index.html)
+
+Executed `planning/Portfolio_Site_Update_Prompt.md` against the live site (`index.html` — single-file, `.nojekyll`). Design language preserved; surgical content/markup edits only. Fanned out 6 subagents over disjoint regions to author the edit specs, applied sequentially in-thread.
+
+- **Positioning:** title/meta/OG/Twitter + hero label + summary changed from "Automation Controls Engineer" to "Control Systems Engineer — Semiconductor & Critical Facilities".
+- **Experience:** added WGNSTAR — Semiconductor Tool Research Site (APR 2026 — Present) as the active top entry (scope-only, no metrics — role ~2 months old); re-dated C&W/JLL to MAY 2025 — MAR 2026 (past role); GE International Inc. → GE Power; Energy Recovery title → "Electrical, Instrumentation & Controls Technician".
+- **System Overview:** fixed inaccurate HMI stat (LabVIEW/CompactDAQ was DAQ, not HMI) → split into "HMI / SCADA: Ignition, FactoryTalk, Cimplicity" + "Data Acquisition: NI CompactDAQ, LabVIEW"; added a SCADA/HMI competency card.
+- **Projects:** added "Off-Site Digital Twin — Ignition SCADA + Python" card, marked Personal Project · In Development.
+- **Résumé:** added "DOWNLOAD RÉSUMÉ" hero CTA → `/Kyaw_Min_Thu_Resume.pdf` (exists at repo root).
+- **Contact:** removed public phone (and JSON-LD `telephone`); added LinkedIn + GitHub cards; updated "open to" copy to direct-hire Control Systems roles.
+- **SEO:** updated existing JSON-LD Person (jobTitle, description, expanded knowsAbout, added `sameAs` LinkedIn/GitHub).
+- Also refined `planning/Portfolio_Site_Update_Prompt.md` to match repo reality (single-file site, résumé path, JSON-LD-already-present, SYS.02 duplicate).
+- Verified: no stale strings; JSON-LD valid; one active timeline-item; `<div>` balance 209/209.
+- **Known/deferred:** RCA and Experience sections both still labelled `SYS.02` (pre-existing); left as-is (nav uses `#anchors`, not SYS IDs). Not committed — awaiting review.
 
 ## 2026-03-18 — Experience bullets and projects section rewritten (Tasks 6–7)
 
