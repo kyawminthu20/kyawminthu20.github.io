@@ -9,7 +9,7 @@ from build_resume import validate
 
 VALID = {
     "name": "Kyaw Min Thu", "email": "kyaw@kmtkn.me",
-    "phone": "+1 510 909 3716", "location": "Bay Area, CA",
+    "phone": "+1 555 010 1234", "location": "Bay Area, CA",
     "company": "Acme", "role": "Engineer",
     "summary": "A summary.",
     "competencies": ["PLC", "SCADA"],
@@ -156,4 +156,4 @@ def test_header_contact_line_contains_email():
 def test_header_contact_line_contains_phone():
     doc = make_doc()
     build_header(doc, VALID)
-    assert "+1 510 909 3716" in doc.paragraphs[1].text
+    assert "+1 555 010 1234" in doc.paragraphs[1].text
