@@ -21,3 +21,7 @@ presentation/add_another_RCA_example.md
 presentation/documentation.md
 presentation/landing_page.md
 presentation/RCA_Presentation_Kyaw.pptx
+
+# Python
+__pycache__/
+.pytest_cache/
