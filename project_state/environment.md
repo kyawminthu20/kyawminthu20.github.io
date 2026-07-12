@@ -1,6 +1,6 @@
 # Environment
 
-**Last Updated:** 2026-03-16
+**Last Updated:** 2026-07-12
 **Status:** Active
 
 ## Purpose
@@ -9,52 +9,39 @@ This file records what is required to work on the repository in its current form
 
 ## Current Runtime Baseline
 
-- No site framework or package manager is required for the current prototype
-- The current site prototype is plain static HTML, CSS, and JavaScript in `planning/index.html`
-- The repository also contains YAML source data and archived Android Studio projects
-
-## Current Project Surface
-
-- `planning/index.html` is the current personal-site prototype
-- `RAG/kmt_career.yaml` is the structured source for career content
-- `software_projects/CS453Summer2024MobileProgramming/` contains Android coursework and media
-- `project_state/` contains the working project memory for this repo
+- The live site is the root `index.html` — plain static HTML/CSS/JS, fully
+  self-contained, no build step. `.nojekyll` disables Jekyll processing.
+- `presentation/` is a second self-contained static page (RCA talk microsite)
+  with a service worker for offline viewing.
+- Resume tooling is Python: `tools/generate_resume.py` (PDF, reportlab) and
+  `tools/build_resume.py` (DOCX, incomplete).
 
 ## Required Tools
 
 - `git`
 - a modern web browser
-
-## Optional Tools
-
-- `python3` for a simple local static server via `python3 -m http.server`
-- a code editor
+- Python >= 3.12 with `uv` (only for resume tooling and tests)
 
 ## Dependency Files
 
-There is currently no root site build configuration such as:
+- `pyproject.toml` + `uv.lock` — Python deps: `reportlab`, `python-docx`,
+  `pyyaml`; dev: `pytest`. Install with `uv sync`.
+- No Node/Ruby build configuration; `_config.yml` is GitHub Pages metadata only.
 
-- `package.json`
-- `Gemfile`
-- `pyproject.toml`
-- GitHub Pages workflow files
+## Data Files
 
-Android coursework subprojects do include Gradle files, but those are source material and not part of the current website runtime.
+- `RAG/` is **gitignored and local-only** (contains personal identifiers).
+  `RAG/resume_data.yaml` is the content source for `generate_resume.py`.
+  Back it up privately; a fresh clone will not have it.
 
 ## Environment Variables
 
-- none required for the current personal-site prototype
-
-Note: the Android coursework archive includes local app configuration files such as `secrets.properties`. Those files are not part of the website, and they should be reviewed before the repository is published more broadly.
+- none
 
 ## Deployment Target
 
-- GitHub Pages
-- static output only
-- personal website
-
-## Current Deployment Gap
-
-- no finalized publish directory yet
-- no GitHub Pages configuration committed in the current tree
-- no automated build or deploy workflow defined yet
+- GitHub Pages serving the repository root from `main`
+- Canonical URL: https://kyawminthu20.github.io (kmtkn.me forwards to it via
+  registrar-level redirect, not a CNAME)
+- Merging to `main` publishes automatically; no CI workflow files exist or are
+  needed
