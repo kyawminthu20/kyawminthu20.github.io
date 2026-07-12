@@ -10,6 +10,10 @@ local.defaults.properties
 # Private planning notes (all files)
 planning/
 
+# Private career source data — contains personal identifiers (DOB, contact,
+# immigration history). Local source of truth for resume tooling; never publish.
+RAG/
+
 # Private presentation working files
 presentation/feedback.md
 presentation/presentation data.md
