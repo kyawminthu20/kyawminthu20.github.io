@@ -11,6 +11,15 @@ Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
 
+## 2026-07-12 — Repo cleanup merged to main and verified live (PR #1)
+
+- Merge commit `44b4544`; GitHub Pages build succeeded from it.
+- Live-site verification passed: SYS.01–06 each appear exactly once; sitemap
+  lists `/` and `/presentation/`; microsite and resume PDF return 200; removed
+  coursework path returns 404; no phone number or `tel:` links on the page;
+  title reflects the Control Systems positioning.
+- Outstanding: rotate the Google Maps API key exposed in git history.
+
 ## 2026-07-12 — Repo cleanup: coursework excised, RAG/ privatized, agent docs rewritten (branch refactor/repo-cleanup)
 
 - Archived `software_projects/CS453Summer2024MobileProgramming/` (343 files, ~45 MB)
