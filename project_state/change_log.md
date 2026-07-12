@@ -1,6 +1,6 @@
 # Project Change Log
 
-**Last Updated:** 2026-06-07
+**Last Updated:** 2026-07-12
 **Status:** Active
 
 ## Purpose
@@ -10,6 +10,29 @@ This file tracks meaningful project-level changes for the current repository.
 Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
+
+## 2026-07-12 — Repo cleanup: coursework excised, RAG/ privatized, agent docs rewritten (branch refactor/repo-cleanup)
+
+- Archived `software_projects/CS453Summer2024MobileProgramming/` (343 files, ~45 MB)
+  to local `Dev/_archive/` and removed it from the repo. It contained a hardcoded
+  Google Maps API key in `AndroidManifest.xml` — the key still needs rotation and
+  remains in git history until a history purge is decided.
+- Gitignored `RAG/` entirely; untracked `RAG/kmt_career.yaml` (contained phone
+  number). New local-only sources: `CAREER_AUTOBIOGRAPHY.md`, `CAREER_INDEX-1.md`,
+  and `resume_data.yaml`.
+- Refactored `tools/generate_resume.py` to load content from `RAG/resume_data.yaml`
+  (was fully hardcoded, including personal phone). Added validating loader + tests
+  (`tests/test_generate_resume.py`); added `pyyaml` dependency. Verified end-to-end.
+- Rewrote `CLAUDE.md` and `AGENTS.md` — both previously described a different
+  project ("Control System Tools" / `control-standards/rag/`) with dead commands.
+  Fixed the SessionStart hook; removed RAG-workspace agents and skills from `.claude/`.
+- Site fixes: sections renumbered SYS.01–06 (duplicate SYS.02 resolved); dead
+  private Control-System-Tools link replaced with a "private repository" note;
+  `/presentation/` added to `sitemap.xml`; `_config.yml` title/description aligned
+  with the Control Systems repositioning.
+- Untracked stray `.DS_Store` files; ignored `__pycache__/` and `.pytest_cache/`.
+- Refreshed `environment.md` (was describing deleted `planning/index.html` era)
+  and wrote `how_to.md` (was empty).
 
 ## 2026-06-07 — Portfolio repositioning toward Control Systems / semiconductor (root index.html)
 
