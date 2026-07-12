@@ -11,6 +11,36 @@ Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
 
+## 2026-07-12 — Whole-project housekeeping (branch docs/post-merge-state, PR #2)
+
+- **PII sweep of all tracked files** found the real phone number still public in
+  two places: `tests/test_build_resume.py` (fixture + assertion, now a 555
+  placeholder) and `docs/superpowers/plans/2026-03-16-tailor-resume.md`. The
+  `docs/superpowers/` plans/specs (internal working docs) were moved to
+  gitignored `planning/docs-superpowers/` and removed from tracking. The phone
+  number remains in git history — same purge/rotate decision as the API key.
+- Untracked stale committed artifacts: three `__pycache__/*.pyc` files,
+  presentation working files (`presentation_raw.rtf`, `slide_presentation.rtf`,
+  `Kyaw_RCA_Presentation_Practice.pptx`, `speaker_script.md`) and one
+  unreferenced photo — all kept locally and added to `.gitignore`, matching the
+  existing "private presentation working files" convention.
+- Removed redundant `tests/.gitkeep` / `tools/.gitkeep`; softened the
+  `.gitignore` comment that itemized RAG's sensitive contents.
+- Pruned merged branches (`feat/control-systems-repositioning`,
+  `refactor/repo-cleanup` local + remote); deleted local caches/`.DS_Store`s.
+- `KyawMinThu_Controls_Presentation.pptx` (repo root, 337 KB) is tracked but
+  unreferenced by any page — left in place in case its direct URL is shared;
+  candidate for removal.
+
+## 2026-07-12 — Repo cleanup merged to main and verified live (PR #1)
+
+- Merge commit `44b4544`; GitHub Pages build succeeded from it.
+- Live-site verification passed: SYS.01–06 each appear exactly once; sitemap
+  lists `/` and `/presentation/`; microsite and resume PDF return 200; removed
+  coursework path returns 404; no phone number or `tel:` links on the page;
+  title reflects the Control Systems positioning.
+- Outstanding: rotate the Google Maps API key exposed in git history.
+
 ## 2026-07-12 — Repo cleanup: coursework excised, RAG/ privatized, agent docs rewritten (branch refactor/repo-cleanup)
 
 - Archived `software_projects/CS453Summer2024MobileProgramming/` (343 files, ~45 MB)

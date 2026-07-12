@@ -2,8 +2,8 @@
 
 **Last Updated:** 2026-07-12
 **Status:** Active
-**Current Phase:** Phase 7 — Repo cleanup & privacy hardening (branch `refactor/repo-cleanup`)
-**Next Phase:** Merge cleanup branch; continued content maintenance as role/positioning evolves
+**Current Phase:** Phase 7 complete — repo cleanup merged and live (PR #1, 2026-07-12)
+**Next Phase:** Continued content maintenance as role/positioning evolves
 **Delivery Target:** GitHub Pages static site for personal use
 
 ## Purpose
@@ -28,16 +28,14 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 
 ## Active Priorities
 
-- Branch `refactor/repo-cleanup` holds the 2026-07-12 cleanup (coursework excised, `RAG/` privatized, resume tooling data-driven, agent docs rewritten, site fixes). Needs review, merge to `main`, and post-deploy verification.
 - **Rotate the Google Maps API key** that was hardcoded in the removed coursework's `AndroidManifest.xml` — it remains in git history until rotated (or history is purged).
 - Decide whether to purge git history of the coursework archive and `RAG/kmt_career.yaml` (both contain personal data / the API key) or accept rotation + private data as sufficient.
 
 ## What Should Be Implemented Next
 
-1. Open a PR for `refactor/repo-cleanup`, review, merge to `main`, verify the live site.
-2. Rotate the exposed Google Maps API key.
-3. Optional: complete `tools/build_resume.py` (DOCX output) or remove it.
-4. Optional: add a third RCA case from semiconductor facility work once available.
+1. Rotate the exposed Google Maps API key.
+2. Optional: complete `tools/build_resume.py` (DOCX output) or remove it.
+3. Optional: add a third RCA case from semiconductor facility work once available.
 
 ## Source Of Truth By Topic
 
@@ -52,6 +50,11 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 ## Risks And Gaps
 
 - Exposed Google Maps API key persists in git history until rotated/purged.
+- The personal phone number also persists in git history (former resume script,
+  `kmt_career.yaml`, test fixtures, superpowers plan docs) — strengthens the
+  case for a one-time `git filter-repo` history purge.
+- `KyawMinThu_Controls_Presentation.pptx` at the repo root is unreferenced by
+  any page; decide to keep (if its URL is shared externally) or remove.
 - `RAG/` has no remote backup by design — a lost working copy loses the resume source data; keep a private backup.
 - `tools/build_resume.py` (DOCX) is incomplete and untested.
 - Project selection is not finalized yet. Featuring too much would make the site feel crowded and less personal.

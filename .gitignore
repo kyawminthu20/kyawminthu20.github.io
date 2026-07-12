@@ -10,8 +10,8 @@ local.defaults.properties
 # Private planning notes (all files)
 planning/
 
-# Private career source data — contains personal identifiers (DOB, contact,
-# immigration history). Local source of truth for resume tooling; never publish.
+# Private career source data — contains personal identifiers. Local source of
+# truth for resume tooling; never publish.
 RAG/
 
 # Private presentation working files
@@ -21,6 +21,11 @@ presentation/add_another_RCA_example.md
 presentation/documentation.md
 presentation/landing_page.md
 presentation/RCA_Presentation_Kyaw.pptx
+presentation/Kyaw_RCA_Presentation_Practice.pptx
+presentation/presentation_raw.rtf
+presentation/slide_presentation.rtf
+presentation/speaker_script.md
+presentation/558984853_10161783188606191_810784134374239134_n.jpg
 
 # Python
 __pycache__/
