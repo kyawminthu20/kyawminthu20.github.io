@@ -33,9 +33,10 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 
 ## What Should Be Implemented Next
 
-1. Rotate the exposed Google Maps API key.
-2. Optional: complete `tools/build_resume.py` (DOCX output) or remove it.
-3. Optional: add a third RCA case from semiconductor facility work once available.
+1. Rotate the exposed Google Maps API key (Google Cloud console).
+2. Optionally ask GitHub Support to purge cached pre-purge commits.
+3. Optional: complete `tools/build_resume.py` (DOCX output) or remove it.
+4. Optional: add a third RCA case from semiconductor facility work once available.
 
 ## Source Of Truth By Topic
 
@@ -49,10 +50,11 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 
 ## Risks And Gaps
 
-- Exposed Google Maps API key persists in git history until rotated/purged.
-- The personal phone number also persists in git history (former resume script,
-  `kmt_career.yaml`, test fixtures, superpowers plan docs) — strengthens the
-  case for a one-time `git filter-repo` history purge.
+- Git history was purged 2026-07-12 (phone number + API key scrubbed, private
+  paths removed; backup bundle in `Dev/_workspace/`). Orphaned pre-purge
+  commits remain cached on GitHub until Support is asked to purge them.
+- The Maps API key must still be **rotated** — it was public and must be
+  treated as leaked regardless of the purge.
 - `KyawMinThu_Controls_Presentation.pptx` at the repo root is unreferenced by
   any page; decide to keep (if its URL is shared externally) or remove.
 - `RAG/` has no remote backup by design — a lost working copy loses the resume source data; keep a private backup.
