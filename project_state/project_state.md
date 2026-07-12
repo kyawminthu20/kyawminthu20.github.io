@@ -50,6 +50,11 @@ The intended tone is modest and factual. The site should introduce Kyaw Min Thu,
 ## Risks And Gaps
 
 - Exposed Google Maps API key persists in git history until rotated/purged.
+- The personal phone number also persists in git history (former resume script,
+  `kmt_career.yaml`, test fixtures, superpowers plan docs) — strengthens the
+  case for a one-time `git filter-repo` history purge.
+- `KyawMinThu_Controls_Presentation.pptx` at the repo root is unreferenced by
+  any page; decide to keep (if its URL is shared externally) or remove.
 - `RAG/` has no remote backup by design — a lost working copy loses the resume source data; keep a private backup.
 - `tools/build_resume.py` (DOCX) is incomplete and untested.
 - Project selection is not finalized yet. Featuring too much would make the site feel crowded and less personal.
