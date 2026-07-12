@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo 'Project: Control System Tools. Stack: Jekyll 4.2 + Python 3.13. Authoritative content in control-standards/rag/. Track changes in project_state/.'"
+            "command": "echo 'Project: kyawminthu20.github.io — personal portfolio (static GitHub Pages, no build step; live site is root index.html). Resume tooling: uv + Python. RAG/ is private/gitignored. Track changes in project_state/.'"
           }
         ]
       }
