@@ -1,5 +1,12 @@
-"""Generate a one-page PDF resume for Kyaw Min Thu."""
+"""Generate a one-page PDF resume from RAG/resume_data.yaml.
 
+Content lives in RAG/ (gitignored — carries personal contact details);
+this script is layout only.
+"""
+
+from pathlib import Path
+
+import yaml
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import inch
@@ -7,9 +14,34 @@ from reportlab.lib import colors
 from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, HRFlowable, Table, TableStyle
 )
-from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT
+from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 
-OUTPUT = "Kyaw_Min_Thu_Resume.pdf"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = REPO_ROOT / "RAG" / "resume_data.yaml"
+OUTPUT = REPO_ROOT / "Kyaw_Min_Thu_Resume.pdf"
+
+REQUIRED_KEYS = (
+    "name", "tagline", "contact_line", "summary",
+    "skills", "experience", "education",
+)
+
+
+def load_resume_data(path: Path) -> dict:
+    """Load and validate resume content, failing loudly on gaps."""
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Resume data file not found: {path}. RAG/ is local-only — "
+            "restore resume_data.yaml from your private backup."
+        )
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    missing = [key for key in REQUIRED_KEYS if not data.get(key)]
+    if missing:
+        raise ValueError(f"Resume data missing required keys: {', '.join(missing)}")
+    for i, entry in enumerate(data["experience"]):
+        if not entry.get("bullets"):
+            raise ValueError(f"experience[{i}] ({entry.get('role', '?')}) has no bullets")
+    return data
+
 
 # ── Palette ────────────────────────────────────────────────────────────────
 DARK   = colors.HexColor("#1a1a2e")
@@ -63,9 +95,11 @@ def job(role, company, dates, bullets):
     items.append(Spacer(1, 3))
     return items
 
-def build():
+def build(data_path: Path = DATA_PATH) -> None:
+    data = load_resume_data(data_path)
+
     doc = SimpleDocTemplate(
-        OUTPUT,
+        str(OUTPUT),
         pagesize=letter,
         leftMargin=0.55*inch,
         rightMargin=0.55*inch,
@@ -76,43 +110,24 @@ def build():
     story = []
 
     # ── Header ──────────────────────────────────────────────────────────────
-    story.append(Paragraph("Kyaw Min Thu", NAME))
-    story.append(Paragraph("Automation Controls Engineer", TAGLINE))
-    story.append(Paragraph(
-        "kyaw@kmtkn.me  ·  +1 (510) 909-3716  ·  San Francisco Bay Area, CA  ·  kyawminthu20.github.io",
-        CONTACT
-    ))
+    story.append(Paragraph(data["name"], NAME))
+    story.append(Paragraph(data["tagline"], TAGLINE))
+    story.append(Paragraph(data["contact_line"], CONTACT))
     story.append(rule())
 
     # ── Summary ─────────────────────────────────────────────────────────────
     story += section("Summary")
-    story.append(Paragraph(
-        "Controls engineer with 20+ years across offshore drilling, semiconductor fabs, EV/solar manufacturing, "
-        "high-pressure R&D, and large-scale fulfillment automation. Fluent in Rockwell, Siemens, and Mitsubishi "
-        "PLC platforms; bridges hardware-level commissioning with Python-based data tooling.",
-        SKILL
-    ))
+    story.append(Paragraph(data["summary"], SKILL))
 
     # ── Skills ──────────────────────────────────────────────────────────────
     story += section("Technical Skills")
 
     skills_data = [
         [
-            Paragraph("<b>PLC / Control Platforms</b>", SKILL),
-            Paragraph("Rockwell ControlLogix / CompactLogix, Siemens S7-300/1500, Mitsubishi FX, Omron", SKILL),
-        ],
-        [
-            Paragraph("<b>Programming</b>", SKILL),
-            Paragraph("Ladder Logic, Structured Text, FBD  ·  Python, SQL, C  ·  LabVIEW", SKILL),
-        ],
-        [
-            Paragraph("<b>Systems & Protocols</b>", SKILL),
-            Paragraph("VFDs, Servo Drives, Fanuc Robotics, NI CompactDAQ  ·  EtherNet/IP, Modbus TCP, OPC UA, MQTT", SKILL),
-        ],
-        [
-            Paragraph("<b>Other</b>", SKILL),
-            Paragraph("Electrical schematics, panel fabrication, safety interlocks, ATEX, SCADA/HMI, data acquisition", SKILL),
-        ],
+            Paragraph(f"<b>{skill['label']}</b>", SKILL),
+            Paragraph(skill["text"], SKILL),
+        ]
+        for skill in data["skills"]
     ]
     skills_table = Table(
         skills_data,
@@ -129,87 +144,14 @@ def build():
 
     # ── Experience ───────────────────────────────────────────────────────────
     story += section("Experience")
-
-    story += job(
-        "Automation Engineer — Controls Lead",
-        "C&W Services / JLL  ·  Amazon Fulfillment Centers",
-        "Mar 2025 – Present",
-        [
-            "Controls lead for Rockwell ControlLogix PLCs on conveyor and sortation systems across Amazon FC sites.",
-            "Primary technical lead for Fanuc robot troubleshooting, commissioning, and program modifications.",
-            "Built Python fault-trending tools to identify downtime patterns and reduce repeat failures.",
-            "Commissioned conveyor inspection system integrating sensors, PLC logic, and HMI diagnostics.",
-        ]
-    )
-
-    story += job(
-        "Electrical Technician — Automation & Controls",
-        "Energy Recovery Inc.",
-        "Mar 2018 – Feb 2025",
-        [
-            "Designed NI CompactDAQ / LabVIEW control systems for R&D high-pressure pump and valve test rigs.",
-            "Programmed Allen-Bradley PLCs (ControlLogix, CompactLogix); integrated Keyence vision into test workflows.",
-            "Full lifecycle ownership: schematics, BOM, panel build, safety interlocks, installation, commissioning.",
-            "Python + SQL data acquisition pipelines for experiment traceability and regulatory reporting.",
-        ]
-    )
-
-    story += job(
-        "Maintenance Technician — Automation & Controls",
-        "Tesla Motors / SolarCity",
-        "Oct 2015 – Mar 2018",
-        [
-            "Supported high-volume EV and solar manufacturing automation (Fanuc robotics, Rockwell PLCs).",
-            "Data-driven MTBF improvement programs; modified control logic for production startups and line expansions.",
-        ]
-    )
-
-    story += job(
-        "Field Service Engineer — Controls & Automation",
-        "MHWirth (Singapore) Pte. Ltd.",
-        "Apr 2012 – Apr 2015",
-        [
-            "Led full PLC conversion of offshore drilling top drive (Mitsubishi → Siemens S7): I/O mapping, "
-            "interlock logic, ATEX cabinet fabrication, and offshore commissioning.",
-            "Tuned hydraulic PID loops and verified performance under live load conditions on active rigs.",
-        ]
-    )
-
-    story += job(
-        "System Engineer",
-        "Hexcel Solutions Pte. Ltd.",
-        "May 2009 – Oct 2010",
-        [
-            "Designed and commissioned automated firefighter training systems for Singapore Civil Defence Academy; "
-            "PLC programming and SCADA for fire, gas, and hydraulic control.",
-        ]
-    )
-
-    story += job(
-        "Associate Engineer — Computer Integrated Manufacturing",
-        "Chartered Semiconductor Manufacturing",
-        "Jun 2005 – Dec 2008",
-        [
-            "Maintained CIM systems (IBM SiView) and factory automation data platforms in a 300mm wafer fab.",
-        ]
-    )
+    for entry in data["experience"]:
+        story += job(entry["role"], entry["company"], entry["dates"], entry["bullets"])
 
     # ── Education ────────────────────────────────────────────────────────────
     story += section("Education")
-
-    edu_data = [
-        [
-            Paragraph("BS Computer Science", EDU),
-            Paragraph("California State University, East Bay", EDUSUB),
-        ],
-        [
-            Paragraph("Diploma — Electronics, Computers & Communications Engineering", EDU),
-            Paragraph("Singapore Polytechnic  ·  Apr 2004", EDUSUB),
-        ],
-    ]
-    for row in edu_data:
+    for entry in data["education"]:
         t = Table(
-            [row],
+            [[Paragraph(entry["degree"], EDU), Paragraph(entry["institution"], EDUSUB)]],
             colWidths=["55%", "45%"],
             style=TableStyle([
                 ("VALIGN",       (0,0), (-1,-1), "TOP"),
