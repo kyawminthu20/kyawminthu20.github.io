@@ -11,6 +11,20 @@ Keep entries concise and focused on changes that future work needs to remember.
 
 ## Change History
 
+## 2026-07-12 — Git history purged (git filter-repo, force-push)
+
+- Rewrote all history to remove the personal phone number (6 historical
+  locations incl. the original `index.html` tel: link and once-tracked
+  `planning/` files) and the Google Maps API key (`AndroidManifest.xml` +
+  committed `secrets.properties`). Private paths (`RAG/`, `planning/`,
+  coursework, `docs/superpowers/`, presentation working files, `__pycache__`)
+  dropped from history entirely; `AIza…`/phone regex-scrubbed from all blobs.
+- 67 → 46 commits; `main` `ddf33e4` → `59c558a`. Tip tree verified
+  byte-identical before push; site content unchanged; Pages rebuilt; 30 tests pass.
+- Pre-purge backup bundle: `Dev/_workspace/kyawminthu20.github.io-pre-purge-2026-07-12.bundle`.
+- Residual: orphaned commits stay cached on GitHub until Support purges them;
+  API key rotation still required (treat as leaked).
+
 ## 2026-07-12 — Whole-project housekeeping (branch docs/post-merge-state, PR #2)
 
 - **PII sweep of all tracked files** found the real phone number still public in
